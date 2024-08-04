@@ -176,11 +176,11 @@ var tno_templates = [
         style: `
 @font-face {
     font-family: bomb;
-    src: url("assets/TNO/Bombardier-Regular.ttf");
+    src: url("Bombardier-Regular.ttf");
 }
 @font-face {
     font-family: aldrich;
-    src: url("assets/TNO/Aldrich.ttf")
+    src: url("Aldrich.ttf")
 }
 .TNO-header-text {
     color: white;
@@ -198,7 +198,7 @@ body {
             {
                 id: "flag",
                 type: "image",
-                src: "assets/vanilla/flag_unknown.png",
+                src: "flag_unknown.png",
                 x: 23,
                 y: 9,
                 width: 82,
@@ -207,17 +207,17 @@ body {
             },
             {
                 id: "portrait",
-                type: "image", src: "assets/vanilla/leader_unknown.png",
+                type: "image", src: "leader_unknown.png",
                 x: 5, y: 73,
                 width: 117, height: 156,
                 replaceable: true
             },
             {
-                type: "image", src: "assets/TNO/diplo_upper_win_bg.png",
+                type: "image", src: "diplo_upper_win_bg.png",
                 x: 0, y: 0
             },
             {
-                type: "image", src: "assets/TNO/unfinished_subid_template.png",
+                type: "image", src: "unfinished_subid_template.png",
                 x: 176, y: 36,
                 classes: ["center"],
                 replaceable: true
@@ -266,11 +266,11 @@ body {
                 replaceable: true
             },
             {
-                type: "image", src: "assets/TNO/pol_piechart_overlay.png",
+                type: "image", src: "pol_piechart_overlay.png",
                 x: 141, y: 81,
             },
             {
-                type: "image", src: "assets/vanilla/goal_unknown.png",
+                type: "image", src: "goal_unknown.png",
                 x: 175, y: 191,
                 classes: ["center"], style: "transform: scale(90%) translate(-50%, -55%);",
                 replaceable: true
@@ -289,13 +289,13 @@ body {
         y: 40,
         elements: [
             {
-                type: "image", src: "assets/TNO/superevent_unknown.png",
+                type: "image", src: "superevent_unknown.png",
                 x: 8, y: 53,
                 width: 572, height: 390,
                 replaceable: true
             },
             {
-                type: "image", src: "assets/TNO/superevent.png",
+                type: "image", src: "superevent.png",
                 x: 0, y: 0,
             },
             {
@@ -329,17 +329,17 @@ body {
 }`,
         elements: [
             {
-                type: "image", src: "assets/TNO/news_event.png",
+                type: "image", src: "news_event.png",
                 x: 0, y: 0
             },
             {
-                type: "image", src: "assets/vanilla/flag_unknown.png",
+                type: "image", src: "flag_unknown.png",
                 x: 27, y: 139,
                 width: 161, height: 420,
                 replaceable: true
             },
             {
-                type: "image", src: "assets/TNO/news_event_overlay.png",
+                type: "image", src: "news_event_overlay.png",
                 x: 27, y: 139,
                 width: 161, height: 420
             },
@@ -358,7 +358,7 @@ body {
                 replaceable: true
             },
             {
-                type: "image", src: "assets/TNO/event_option_entry.png",
+                type: "image", src: "event_option_entry.png",
                 x: 165, y: 496
             },
             {
