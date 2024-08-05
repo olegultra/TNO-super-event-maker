@@ -279,7 +279,7 @@ body {
                 type: "text", text: "Focus Name",
                 x: 234, y: 154,
                 width: 272,
-                classes: ["TNO-info-text"], style: "font-size: 24px; text-align: center;",
+                classes: ["TNO-info-text"], style: "font-size: 19px; text-align: center;",
                 replaceable: true
             }
         ]
