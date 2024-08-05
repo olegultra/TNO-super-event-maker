@@ -307,14 +307,14 @@ body {
             },
             {
                 type: "text", text: "Button Text",
-                x: 194, y: 440,
+                x: 194, y: 443,
                 width: 200,
-                classes: ["TNO-header-text"], style: "font-size: 20px; text-align: center; text-shadow: 1px 1px 1px #000000;",
+                classes: ["TNO-header-text"], style: "font-size: 20px; text-align: center; text-shadow: 1px 1px 0px #000000;",
                 replaceable: true
             },
             {
                 type: "text", text: "Event Title",
-                x: 194, y: -4,
+                x: 194, y: 0,
                 width: 200,
                 classes: ["TNO-info-text"], style: "font-size: 18px; text-align: center;",
                 replaceable: true
