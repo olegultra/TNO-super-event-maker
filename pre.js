@@ -1,3 +1,174 @@
+var vanilla_templates = [
+    {
+        x: 560,
+        y: 40,
+        style: `
+        .hoi4-text {
+            font-family: 'Verdana', sans-serif;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+        }
+        body {
+            background-color: #111111
+        }
+        `,
+        elements: [
+            {
+                type: "image",
+                src: "assets/vanilla/event_news_bg.png",
+                x: 0,
+                y: 0
+            },
+            {
+                type: "image",
+                src: "assets/vanilla/flag_unknown.png",
+                x: 58,
+                y: 90,
+                width: 399,
+                height: 155,
+                replaceable: true
+            },
+            {
+                type: "image",
+                src: "assets/vanilla/event_news_pic_overlay.png",
+                x: 58,
+                y: 90,
+                width: 399,
+                height: 155
+            },
+            {
+                type: "text",
+                text: "Event Title",
+                x: 12,
+                y: 238,
+                width: 490,
+                replaceable: true,
+                style: "font-size: 22px; text-align: center;"
+                
+            },
+            {
+                type: "text",
+                text: "Event Desc",
+                x: 31,
+                y: 274,
+                width: 452,
+                replaceable: true
+            },
+            {
+                type: "image",
+                src: "assets/vanilla/event_option_entry.png",
+                x: 259,
+                y: 528,
+                classes: ["center"]
+            },
+            {
+                type: "text",
+                text: "Event Option",
+                x: 109,
+                y: 493,
+                width: 300, height: 36,
+                replaceable: true,
+                classes: ["hoi4-text"],
+                style: "font-size: 14px; text-align: center; justify-content: center; display: flex; align-items: center;"
+            },
+        ]
+    },
+    {
+        x: 15,
+        y: 40,
+        elements: [
+            {
+                id: "flag",
+                type: "image",
+                src: "assets/vanilla/flag_unknown.png",
+                x: 33,
+                y: 7,
+                width: 84,
+                height: 53,
+                replaceable: true
+            },
+            {
+                id: "portrait",
+                type: "image", src: "assets/vanilla/leader_unknown.png",
+                x: 16,
+                y: 122, width: 116, height: 156,
+                replaceable: true
+            },
+            {
+                type: "image", src: "assets/vanilla/diplo_background.png",
+                x: 0, y: 0
+            },
+            {
+                type: "image", src: "assets/vanilla/unknown.png",
+                x: 186, y: 38,
+                classes: ["center"],
+                replaceable: true
+            },
+            {
+                type: "text", text: "Country Name",
+                x: 240, y: -8,
+                classes: ["hoi4-text"], style: "font-size: 15px",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Faction Name",
+                x: 240, y: 13,
+                classes: ["hoi4-text"], style: "font-size: 15px",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Leader Name",
+                x: 240, y: 36,
+                classes: ["hoi4-text"], style: "font-size: 13px",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Party Name",
+                x: 263, y: 122,
+                classes: ["hoi4-text"], style: "font-size: 13px",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Ideology",
+                x: 263, y: 140,
+                classes: ["hoi4-text"], style: "font-size: 13px",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Election Label",
+                x: 263, y: 158,
+                classes: ["hoi4-text"], style: "font-size: 13px",
+                replaceable: true
+            },
+            {
+                type: "circle",
+                x: 154, y: 129,
+                width: 63, height: 63,
+                style: "border-radius: 50%; background-color: #888888;",
+                replaceable: true
+            },
+            {
+                type: "image", src: "assets/vanilla/pol_piechart_overlay.png",
+                x: 150, y: 125,
+            },
+            {
+                type: "image", src: "assets/vanilla/goal_unknown.png",
+                x: 185, y: 242,
+                classes: ["center"], style: "transform: scale(90%) translate(-50%, -55%);",
+                replaceable: true
+            },
+            {
+                type: "text", text: "Focus Name",
+                x: 240, y: 218,
+                width: 285,
+                classes: ["hoi4-text"], style: "font-size: 13px; text-align: center;",
+                replaceable: true
+            }
+        ]
+    }
+]
+
 var tno_templates = [
     {
         x: 10,
