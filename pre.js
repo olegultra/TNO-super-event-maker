@@ -374,12 +374,5 @@ body {
 
 var templates = [];
 const urlParams = new URL(window.location.href).searchParams;
-
-if (urlParams.has("TNO")) {
-    templates = tno_templates;
-    document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText + " <a href='index.html'>СЮДА НЕ ЖМИ, Я СЕРЬЁЗНО.</a>";
-}
-else {
-    templates = vanilla_templates;
-    document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText + " <a href='index.html?TNO'>ЖМИ СЮДА, ПО ПРИКАЗУ ГНОМОВ.</a>";
-}
+templates = tno_templates;
+document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText;
