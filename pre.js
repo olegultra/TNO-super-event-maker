@@ -192,7 +192,7 @@ body {
             },
             {
                 type: "text", text: "Button Text",
-                x: 172, y: 486,
+                x: 172, y: 484,
                 width: 340, height: 40,
                 classes: [`TNO-news-text`], style: "justify-content: center; display: flex; align-items: center; text-align: center",
                 replaceable: true
