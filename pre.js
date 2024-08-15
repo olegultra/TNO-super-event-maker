@@ -129,7 +129,7 @@ body {
             },
             {
                 type: "text", text: "Quote\n-A person",
-                x: 117, y: 285,
+                x: 120, y: 287,
                 width: 455,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: right;",
                 replaceable: true
@@ -171,7 +171,7 @@ body {
                 type: "image", src: "news_event_overlay.png",
                 x: 27, y: 139,
                 width: 161, height: 420
-            },*/
+            },
             {
                 type: "text", text: "Event Title",
                 x: 34, y: 82,
@@ -195,7 +195,7 @@ body {
                 x: 172, y: 484,
                 width: 340, height: 40,
                 classes: [`TNO-news-text`], style: "justify-content: center; display: flex; align-items: center; text-align: center",
-                replaceable: true
+                replaceable: true*/
             }
         ]
     }
