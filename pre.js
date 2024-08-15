@@ -131,7 +131,7 @@ body {
                 type: "text", text: "Quote\n-A person",
                 x: 117, y: 285,
                 width: 455,
-                classes: ["TNO-header-text"], style: "font-size: 24px; text-align: right;",
+                classes: ["TNO-header-text"], style: "font-size: 20px; text-align: right;",
                 replaceable: true
             },
             {
@@ -157,7 +157,7 @@ body {
     font-family: 'Times New Roman', sans-serif;
 }`,
         elements: [
-            {
+            /*{
                 type: "image", src: "news_event.png",
                 x: 0, y: 0
             },
@@ -171,7 +171,7 @@ body {
                 type: "image", src: "news_event_overlay.png",
                 x: 27, y: 139,
                 width: 161, height: 420
-            },
+            },*/
             {
                 type: "text", text: "Event Title",
                 x: 34, y: 82,
