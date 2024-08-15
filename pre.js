@@ -157,7 +157,7 @@ body {
     font-family: 'Times New Roman', sans-serif;
 }`,
         elements: [
-            /*{
+            {
                 type: "image", src: "news_event.png",
                 x: 0, y: 0
             },
@@ -195,7 +195,7 @@ body {
                 x: 172, y: 484,
                 width: 340, height: 40,
                 classes: [`TNO-news-text`], style: "justify-content: center; display: flex; align-items: center; text-align: center",
-                replaceable: true*/
+                replaceable: true
             }
         ]
     }
