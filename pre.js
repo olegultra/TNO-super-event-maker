@@ -157,7 +157,7 @@ body {
     font-family: 'Times New Roman', sans-serif;
 }`,
         elements: [
-            {
+            /*{
                 type: "image", src: "news_event.png",
                 x: 0, y: 0
             },
@@ -171,27 +171,27 @@ body {
                 type: "image", src: "news_event_overlay.png",
                 x: 27, y: 139,
                 width: 161, height: 420
-            },
+            },*/
             {
-                type: "text", text: "Event Title",
+                type: "text", text: " ",
                 x: 34, y: 82,
                 width: 460,
                 classes: [`TNO-news-text`], style: "font-size: 22px; text-align: center;",
                 replaceable: true
             },
             {
-                type: "text", text: "Event Desc",
+                type: "text", text: " ",
                 x: 195, y: 140,
                 width: 310,
                 classes: [`TNO-news-text`], style: "font-size: 16px; text-align: left;",
                 replaceable: true
             },
-            {
+            /*{
                 type: "image", src: "event_option_entry.png",
                 x: 165, y: 496
-            },
+            },*/
             {
-                type: "text", text: "Button Text",
+                type: "text", text: " ",
                 x: 172, y: 484,
                 width: 340, height: 40,
                 classes: [`TNO-news-text`], style: "justify-content: center; display: flex; align-items: center; text-align: center",
