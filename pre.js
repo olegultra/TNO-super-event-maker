@@ -129,7 +129,7 @@ body {
             },
             {
                 type: "text", text: "Quote\n-A person",
-                x: 120, y: 290,
+                x: 120, y: 287,
                 width: 455,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: right;",
                 replaceable: true
