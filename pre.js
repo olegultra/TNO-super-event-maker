@@ -129,14 +129,14 @@ body {
             },
             {
                 type: "text", text: "Quote\n-A person",
-                x: 120, y: 287,
+                x: 120, y: 290,
                 width: 455,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: right;",
                 replaceable: true
             },
             {
                 type: "text", text: "Button Text",
-                x: 194, y: 443,
+                x: 194, y: 440,
                 width: 200,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: center; text-shadow: 1px 0 1px #000000, 0 1px 1px #000000, -1px 0 1px #000000, 0 -1px 1px #000000;",
                 replaceable: true
