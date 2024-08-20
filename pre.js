@@ -124,7 +124,7 @@ body {
                 replaceable: true
             },
             {
-                type: "image", src: "superevent.png",
+                type: "image", src: "superevent_new.png",
                 x: 0, y: 0,
             },
             {
