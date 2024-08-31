@@ -143,8 +143,8 @@ body {
             },
             {
                 type: "text", text: "Event Title",
-                x: 194, y: -4,
-                width: 200,
+                x: 45, y: -4,
+                width: 500,
                 classes: ["TNO-info-text"], style: "font-size: 20px; text-align: center;",
                 replaceable: true
             }
