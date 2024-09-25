@@ -20,7 +20,7 @@ var tno_templates = [
     font-family: aldrich;
 }
 body {
-    background-color: #000000
+    background-color: #000000;
 }
           `,
         elements: [
