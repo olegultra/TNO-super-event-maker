@@ -9,9 +9,21 @@
         <meta content="https://tombricks.github.io/HOI4-Generator/assets/embed.png" property="og:image">
         <meta content="https://tombricks.github.io/HOI4-Generator/assets/embed.png" property="twitter:image:src">
         <meta content="#111111" data-react-helmet="true" name="theme-color">
+        <style> 
+            #pallete {
+                left: 145px; 
+                top: 85px;
+                width: 63px;
+                height: 63px,
+                border-radius: 50%; 
+                background: conic-gradient(#591918 0.00%, #852121 0.00% 0.56%, #9a3351 0.56% 5.29%, #586492 5.29% 13.57%, #31357d 13.57% 22.90%, #1c1b65 22.90% 40.79%, #6f6f6f 8.79%, #414141 0.00% 8.21%, #181818 0.00% 8.00%, #6d2d23 0.00% 8.00%, #33211d 0.00% 8.00%, #30194f 0.00% 8.00%);
+                replaceable: true; 
+            }
+        </style>
     </head>
     <body>
         <i id="q-drop">Да здравствует Муссолини! Да здравствует социализм!</i>
+        <div id="pallete"></div>
         <input type="file" id="image-input" accept="image/jpeg, image/png" style="display: none;" onchange="image_upload()">
         <div id="content"></div>
         <!-- <div id="selection"></div> -->
