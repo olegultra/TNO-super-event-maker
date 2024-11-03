@@ -87,16 +87,17 @@ body {
                 classes: ["TNO-info-text"], style: "font-size: 17px",
                 replaceable: true
             },
-            {
+            /*{
                 type: "circle",
                 x: 145, y: 85,
                 width: 63, height: 63,
                 style: "border-radius: 50%; background-color: #888888;",
                 replaceable: true
-            },
+            },*/
             {
                 type: "image", src: "pol_piechart_overlay.png",
                 x: 141, y: 81,
+                style: "z-index: 15"
             },
             {
                 type: "image", src: "заглушка.png",
