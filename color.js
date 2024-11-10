@@ -1,4 +1,4 @@
-const pallete = document.getElementById('pallete');
+const pallete = document.getElementById('id_11');
 const colorInput1 = document.getElementById('colorInput1');
 const colorInput2 = document.getElementById('colorInput2');
 const colorInput3 = document.getElementById('colorInput3');
