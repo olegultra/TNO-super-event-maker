@@ -16,6 +16,7 @@
                 opacity: 0;
             }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <i id="q-drop">Да здравствует Муссолини! Да здравствует социализм!</i>
@@ -23,34 +24,11 @@
         <input type="color" id="color-input" value="#888888" style="display: none;" oninput="color_change()">
         <div id="penis"></div> 
         <div id="content"></div>
+        <canvas id="pieChart"></canvas>
         <!-- <div id="selection"></div> -->
-        <input type="number" id="colorInput1" placeholder="коммунизм">
-        <br/>
-        <input type="number" id="colorInput2" placeholder="социализм">
-        <br/>
-        <input type="number" id="colorInput3" placeholder="прогрессивизм">
-        <br/>
-        <input type="number" id="colorInput4" placeholder="либерализм">
-        <br/>
-        <input type="number" id="colorInput5" placeholder="либерал-консерватизм">
-        <br/>
-        <input type="number" id="colorInput6" placeholder="консерватизм">
-        <br/>
-        <input type="number" id="colorInput7" placeholder="патернализм">
-        <br/>
-        <input type="number" id="colorInput8" placeholder="деспотизм">
-        <br/>
-        <input type="number" id="colorInput9" placeholder="ультранационализм">
-        <br/>
-        <input type="number" id="colorInput10" placeholder="фашизм">
-        <br/>
-        <input type="number" id="colorInput11" placeholder="национал-социализм">
-        <br/>
-        <input type="number" id="colorInput12" placeholder="эзотерический нацизм">
-        <br/>
-        <button id="changeColorPallete">Заебашить круг</button>
+        <div id="inputs"></div>
+        <button onclick="updateChart()">Обнови диаграмму епту!</button>
         <script src="pre1.js"></script>
         <script src="script.js"></script>
-        <script src="color.js"></script>
     </body>
 </html>
