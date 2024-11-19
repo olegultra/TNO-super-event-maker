@@ -15,12 +15,6 @@
                 height: 600px;
                 opacity: 0;
             }
-            #pieChart {
-                left: 145px, 
-                top: 85px;
-                width: 63px;
-                height: 63px;
-            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
@@ -62,7 +56,11 @@
                     datasets: [{
                         data: initialData,
                         backgroundColor: colors,
-                        borderWidth: 0
+                        borderWidth: 0,
+                        left: 145px, 
+                        top: 85px,
+                        width: 63px,
+                        height: 63px
                     }]
                 },
                 options: {
