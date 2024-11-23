@@ -87,13 +87,13 @@ body {
                 classes: ["TNO-info-text"], style: "font-size: 17px",
                 replaceable: true
             },
-            /*{
+            {
                 type: "circle",
                 x: 145, y: 85,
                 width: 63, height: 63,
                 classes: ["Pallete"], style: "border-radius: 50%; background: conic-gradient(#591918 0.00%, #852121 0.00% 0.56%, #9a3351 0.56% 5.29%, #586492 5.29% 13.57%, #31357d 13.57% 22.90%, #1c1b65 22.90% 40.79%, #6f6f6f 8.79%, #414141 0.00% 8.21%, #181818 0.00% 8.00%, #6d2d23 0.00% 8.00%, #33211d 0.00% 8.00%, #30194f 0.00% 8.00%);",
                 replaceable: true
-            },*/
+            },
             {
                 type: "image", src: "pol_piechart_overlay.png",
                 x: 141, y: 81,
