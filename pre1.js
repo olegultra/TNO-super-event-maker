@@ -91,7 +91,7 @@ body {
                 type: "circle",
                 x: 145, y: 85,
                 width: 63, height: 63,
-                classes: ["pieChart"],
+                classes: ["pieChart"], style: "border-radius: 50%",
                 replaceable: true
             },
             {
