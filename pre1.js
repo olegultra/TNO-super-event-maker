@@ -95,10 +95,87 @@ body {
                 replaceable: true
             },
             {
-                type: "text",
+                id: "input0",
+                type: "number",
                 x: 90, y: 600,
-                width: 163, height: 163,
-                classes: ["inputs"],
+                value: "100", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input1",
+                type: "number",
+                x: 90, y: 605,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input2",
+                type: "number",
+                x: 90, y: 610,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input3",
+                type: "number",
+                x: 90, y: 615,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input4",
+                type: "number",
+                x: 90, y: 620,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input5",
+                type: "number",
+                x: 90, y: 630,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input6",
+                type: "number",
+                x: 90, y: 635,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input7",
+                type: "number",
+                x: 90, y: 640,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input8",
+                type: "number",
+                x: 90, y: 645,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input9",
+                type: "number",
+                x: 90, y: 650,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input10",
+                type: "number",
+                x: 90, y: 655,
+                value: "0", min: "0", max: "100",
+                replaceable: true
+            },
+            {
+                id: "input11",
+                type: "number",
+                x: 90, y: 660,
+                value: "0", min: "0", max: "100",
                 replaceable: true
             },
             {
