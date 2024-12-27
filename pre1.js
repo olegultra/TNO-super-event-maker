@@ -87,13 +87,13 @@ body {
                 classes: ["TNO-info-text"], style: "font-size: 17px",
                 replaceable: true
             },
-            {
+            /*{
                 type: "pie",
                 x: 145, y: 85,
                 width: 63, height: 63,
                 classes: ["pieChart"],
                 replaceable: true
-            },
+            },*/
             {
                 type: "image", src: "pol_piechart_overlay.png",
                 x: 141, y: 81,
