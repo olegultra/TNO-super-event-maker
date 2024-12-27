@@ -16,19 +16,18 @@
             height: 600px;
             opacity: 0;
         }
-        .container { 
-            width: 50%; 
-            margin: 0 auto; 
-            text-align: center; 
-            position: relative;
-        } 
+            
         #pieChart { 
             left: 145px; 
             top: 85px; 
             height: 63px; 
             width: 63px; 
+            z-index: 10;
         } 
+
         .input-group { 
+            left: 90px; 
+            top: 600px;
             margin: 10px 0; 
         } 
         </style>
@@ -39,13 +38,10 @@
         <input type="color" id="color-input" value="#888888" style="display: none;" oninput="color_change()">
         <div id="penis"></div> 
         <div id="content"></div>
-        <!-- <div class="container"> -->
-        <!-- <canvas id="pieChart"></canvas> -->
+        <canvas id="pieChart"></canvas>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
-        <!-- </div> --> 
-        <!-- <div id="selection"></div> -->
-        <input type="number" id="input0" placeholder="коммунизм">
+        <!-- <input type="number" id="input0" placeholder="коммунизм">
         <br/>
         <input type="number" id="input1" placeholder="социализм">
         <br/>
@@ -69,7 +65,7 @@
         <br/>
         <input type="number" id="input11" placeholder="эзотерический нацизм">
         <br/>
-        <!--<button id="changeColorPallete">Заебашить круг</button> -->
+        <button id="changeColorPallete">Заебашить круг</button> -->
         <script src="pre1.js"></script>
         <script src="script.js"></script>
         <script>
@@ -88,53 +84,51 @@
         const initialData = Array(12).fill(0);
         initialData[0] = 100; 
         let chart;
-
         document.addEventListener("DOMContentLoaded", function () {
-            const ctx = document.getElementById('pieChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    /*labels: labels,*/
-                    datasets: [{
-                        data: initialData,
-                        backgroundColor: colors,
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    animation: false
-                }
-            });
-
-            const inputsContainer = document.getElementById('inputs');
-            labels.forEach((label, index) => {
-                const inputGroup = document.createElement('div');
-                inputGroup.className = 'input-group';
-                inputGroup.innerHTML = `
-                    <label>${label}: </label>
-                    <input type="number" id="input${index}" value="${initialData[index]}" min="0" max="100"> %
-                `;
-                inputsContainer.appendChild(inputGroup);
-            });
+                   const ctx = document.getElementById('pieChart').getContext('2d');
+                   chart = new Chart(ctx, {
+                       type: 'pie',
+                       data: {
+                           datasets: [{
+                               data: initialData,
+                               backgroundColor: colors,
+                               borderWidth: 0
+                           }]
+                       },
+                       options: {
+                           responsive: false,
+                           animation: false
+                       }
+                   });
         });
-
+        document.addEventListener("DOMContentLoaded", function () {
+                   const inputsContainer = document.getElementById('inputs');
+                   labels.forEach((label, index) => {
+                       const inputGroup = document.createElement('div');
+                       inputGroup.className = 'input-group';
+                       inputGroup.innerHTML = `
+                           <label>${label}: </label>
+                           <input type="number" id="input${index}" value="${initialData[index]}" min="0" max="100"> %
+                       `;
+                       inputsContainer.appendChild(inputGroup);
+                   });
+        });
         function updateChart() {
-            const newData = [];
-            labels.forEach((label, index) => {
-                const value = document.getElementById(`input${index}`).value;
-                newData.push(parseFloat(value));
-            });
+                   const newData = [];
+                   labels.forEach((label, index) => {
+                       const value = document.getElementById(`input${index}`).value;
+                       newData.push(parseFloat(value));
+                   });
 
-            const sum = newData.reduce((acc, value) => acc + value, 0);
-            if (sum !== 100) {
-                alert('ТЫ ДУРА ЧТО ЛИ Я НЕ ПОНИМАЮ ВВОДИ НОРМАЛЬНЫЕ ЗНАЧЕНИЯ');
-                return;
-            }
+                   const sum = newData.reduce((acc, value) => acc + value, 0);
+                   if (sum !== 100) {
+                       alert('ТЫ ДУРА ЧТО ЛИ Я НЕ ПОНИМАЮ ВВОДИ НОРМАЛЬНЫЕ ЗНАЧЕНИЯ');
+                       return;
+                   }
 
-            chart.data.datasets[0].data = newData;
-            chart.update();
-        }
+                   chart.data.datasets[0].data = newData;
+                   chart.update();
+               }
         </script>
     </body>
 </html>
