@@ -23,7 +23,6 @@
             position: relative;
         } 
         #pieChart { 
-            position: absolute;
             left: 145px; 
             top: 85px; 
             height: 63px; 
@@ -40,35 +39,35 @@
         <input type="color" id="color-input" value="#888888" style="display: none;" oninput="color_change()">
         <div id="penis"></div> 
         <div id="content"></div>
-        <div class="container">
-            <canvas id="pieChart"></canvas>
-            <div id="inputs"></div>
-            <button onclick="updateChart()">Обновить диаграмму</button>
-        </div>
+        <!-- <div class="container"> -->
+        <canvas id="pieChart"></canvas>
+        <div id="inputs"></div>
+        <button onclick="updateChart()">Обновить диаграмму</button>
+        <!-- </div> --> 
         <!-- <div id="selection"></div> -->
-        <!-- <input type="number" id="Input0" placeholder="коммунизм">
+        <input type="number" id="input0" placeholder="коммунизм">
         <br/>
-        <input type="number" id="Input1" placeholder="социализм">
+        <input type="number" id="input1" placeholder="социализм">
         <br/>
-        <input type="number" id="Input2" placeholder="прогрессивизм">
+        <input type="number" id="input2" placeholder="прогрессивизм">
         <br/>
-        <input type="number" id="Input3" placeholder="либерализм">
+        <input type="number" id="input3" placeholder="либерализм">
         <br/>
-        <input type="number" id="Input4" placeholder="либерал-консерватизм">
+        <input type="number" id="input4" placeholder="либерал-консерватизм">
         <br/>
-        <input type="number" id="Input5" placeholder="консерватизм">
+        <input type="number" id="input5" placeholder="консерватизм">
         <br/>
-        <input type="number" id="Input6" placeholder="патернализм">
+        <input type="number" id="input6" placeholder="патернализм">
         <br/>
         <input type="number" id="input7" placeholder="деспотизм">
         <br/>
-        <input type="number" id="Input8" placeholder="ультранационализм">
+        <input type="number" id="input8" placeholder="ультранационализм">
         <br/>
-        <input type="number" id="Input9" placeholder="фашизм">
+        <input type="number" id="input9" placeholder="фашизм">
         <br/>
-        <input type="number" id="Input10" placeholder="национал-социализм">
+        <input type="number" id="input10" placeholder="национал-социализм">
         <br/>
-        <input type="number" id="Input11" placeholder="эзотерический нацизм">
+        <input type="number" id="input11" placeholder="эзотерический нацизм">
         <br/>
         <!--<button id="changeColorPallete">Заебашить круг</button> -->
         <script src="pre1.js"></script>
@@ -95,7 +94,7 @@
             chart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: labels,
+                    /*labels: labels,*/
                     datasets: [{
                         data: initialData,
                         backgroundColor: colors,
