@@ -159,11 +159,13 @@ body {
 }`,
         elements: [
             {
+                id: "cat1",
                 type: "image", src: "news_event.png",
                 x: 0, y: 0,
                 style: "display: none;"
             },
             {
+                id: "cat2",
                 type: "image", src: "flag_unknown.png",
                 x: 27, y: 139,
                 width: 161, height: 420,
@@ -171,12 +173,14 @@ body {
                 replaceable: true
             },
             {
+                id: "cat3",
                 type: "image", src: "news_event_overlay.png",
                 x: 27, y: 139,
                 width: 161, height: 420,
                 style: "display: none;"
             },
             {
+                id: "cat4",
                 type: "text", text: " ",
                 x: 34, y: 82,
                 width: 460,
@@ -184,6 +188,7 @@ body {
                 replaceable: true
             },
             {
+                id: "cat5",
                 type: "text", text: " ",
                 x: 195, y: 140,
                 width: 310,
@@ -191,11 +196,13 @@ body {
                 replaceable: true
             },
             {
+                id: "cat6",
                 type: "image", src: "event_option_entry.png",
                 x: 165, y: 496,
                 style: "display: none;"
             },
             {
+                id: "cat7",
                 type: "text", text: " ",
                 x: 172, y: 484,
                 width: 340, height: 40,
