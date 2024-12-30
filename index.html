@@ -42,7 +42,7 @@
         <div id="penis"></div> 
         <div id="content"></div>
         <canvas id="pieChart"></canvas>
-        <input type = 'checkbox' id = 'bloggood' onchange = 'showOrHide("bloggood1", "cat1");'/>
+        <input type = 'checkbox' id = 'bloggood' onchange = 'showOrHide();'/>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
         <!-- <input type="number" id="input0" placeholder="коммунизм">
@@ -73,7 +73,7 @@
         <script src="pre1.js"></script>
         <script src="script.js"></script>
         <script ENGINE="text/javascript">
-        function showOrHide(bloggood, cat) {
+        function showOrHide() {
             bloggood = document.getElementById(bloggood);
             cat1 = document.getElementById(cat1);
             cat2 = document.getElementById(cat2);
