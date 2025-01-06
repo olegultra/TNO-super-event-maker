@@ -42,7 +42,7 @@
         <div id="penis"></div> 
         <div id="content"></div>
         <canvas id="pieChart"></canvas>
-        <input type = 'checkbox' id = 'bloggood' onclick = "showOrHide()"/>
+        <input type = 'checkbox' id = 'bloggood'/>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
         <!-- <input type="number" id="input0" placeholder="коммунизм">
@@ -73,7 +73,6 @@
         <script src="pre1.js"></script>
         <script src="script.js"></script>
         <script>
-        function showOrHide() {
             bloggood = document.getElementById(bloggood);
             cat1 = document.getElementById(cat1);
             cat2 = document.getElementById(cat2);
@@ -82,7 +81,25 @@
             cat5 = document.getElementById(cat5);
             cat6 = document.getElementById(cat6);
             cat7 = document.getElementById(cat7);
-            if (bloggood.checked) {
+            bloggood.addEventListener("change", () => {
+                if (bloggood.checked) {
+                    cat1.style.visibility = "visible";
+                    cat2.style.visibility = "visible";
+                    cat3.style.visibility = "visible";
+                    cat4.style.visibility = "visible";
+                    cat5.style.visibility = "visible";
+                    cat6.style.visibility = "visible";
+                    cat7.style.visibility = "visible";
+                } else {
+                    cat1.style.visibility = "hidden";
+                    cat2.style.visibility = "hidden";
+                    cat3.style.visibility = "hidden";
+                    cat4.style.visibility = "hidden";
+                    cat5.style.visibility = "hidden";
+                    cat6.style.visibility = "hidden";
+                    cat7.style.visibility = "hidden";
+                });
+            /*if (bloggood.checked) {
                 cat1.style.display = "block";
                 cat2.style.display = "block";
                 cat3.style.display = "block";
@@ -99,7 +116,7 @@
                 cat5.style.display = "none";
                 cat6.style.display = "none";
                 cat7.style.display = "none";
-            }
+            }*/
         }
         </script>
         <script>
