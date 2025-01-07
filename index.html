@@ -12,8 +12,8 @@
         <meta content="#111111" data-react-helmet="true" name="theme-color">
         <style>
 
-        #bloggood {
-            background-color: white;
+        #one {
+            text-color: white;
         }
         
         #penis {
@@ -36,7 +36,7 @@
             left: 90px; 
             top: 600px;
             margin: 10px 0; 
-            background-color: white;
+            text-color: white;
         } 
         </style>
     </head>
@@ -47,7 +47,8 @@
         <div id="penis"></div> 
         <div id="content"></div>
         <canvas id="pieChart"></canvas>
-        <input type = 'checkbox' id = 'bloggood'/>Показать газету
+        <label id="one" for="peas">Показать газету</label>
+        <input name = "peas" type = 'checkbox' id = 'bloggood'/>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
         <!-- <input type="number" id="input0" placeholder="коммунизм">
