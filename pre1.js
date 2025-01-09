@@ -53,38 +53,38 @@ body {
             },
             {
                 type: "text", text: "Country Name",
-                x: 214, y: -7,
-                classes: ["TNO-header-text"], style: "font-size: 16px",
+                x: 212, y: -4,
+                classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
                 type: "text", text: "Faction Name",
-                x: 214, y: 11,
-                classes: ["TNO-header-text"], style: "font-size: 16px",
+                x: 212, y: 14,
+                classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
                 type: "text", text: "Leader Name",
-                x: 214, y: 29,
-                classes: ["TNO-header-text"], style: "font-size: 16px",
+                x: 212, y: 31,
+                classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
                 type: "text", text: "Party Name",
-                x: 236, y: 71,
-                classes: ["TNO-info-text"], style: "font-size: 17px",
+                x: 236, y: 73,
+                classes: ["TNO-info-text"], style: "font-size: 16px",
                 replaceable: true
             },
             {
                 type: "text", text: "Ideology",
-                x: 236, y: 94,
-                classes: ["TNO-info-text"], style: "font-size: 17px",
+                x: 236, y: 95,
+                classes: ["TNO-info-text"], style: "font-size: 16px",
                 replaceable: true
             },
             {
                 type: "text", text: "Election Label",
-                x: 236, y: 117,
-                classes: ["TNO-info-text"], style: "font-size: 17px",
+                x: 236, y: 119,
+                classes: ["TNO-info-text"], style: "font-size: 16px",
                 replaceable: true
             },
             /*{
