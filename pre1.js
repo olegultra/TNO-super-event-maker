@@ -13,7 +13,7 @@ var tno_templates = [
 }
 @font-face {
     font-family: gouranga;
-    src: url("Aldrich.ttf")
+    src: url("Gouranga-Pixel.ttf")
 }
 .TNO-header-text {
     color: white;
@@ -22,6 +22,10 @@ var tno_templates = [
 .TNO-info-text {
     color: #B2C9C2;
     font-family: aldrich;
+}
+.TNO-newspaper {
+     color: black;
+     font-family: gouranga;
 }
 body {
     background-color: #000000;
@@ -188,7 +192,7 @@ body {
                 type: "text", text: " ",
                 x: 34, y: 82,
                 width: 460,
-                classes: [`TNO-news-text`], style: "font-size: 22px; text-align: center;",
+                classes: [`TNO-newspaper`], style: "font-size: 22px; text-align: center;",
                 replaceable: true
             },
             {
@@ -196,7 +200,7 @@ body {
                 type: "text", text: " ",
                 x: 195, y: 140,
                 width: 310,
-                classes: [`TNO-news-text`], style: "font-size: 16px; text-align: left;",
+                classes: [`TNO-newspaper`], style: "font-size: 16px; text-align: left;",
                 replaceable: true
             },
             {
@@ -210,7 +214,7 @@ body {
                 type: "text", text: " ",
                 x: 172, y: 484,
                 width: 340, height: 40,
-                classes: [`TNO-news-text`], style: "justify-content: center; align-items: center; text-align: center;",
+                classes: [`TNO-newspaper`], style: "justify-content: center; align-items: center; text-align: center;",
                 replaceable: true
             }
         ]
