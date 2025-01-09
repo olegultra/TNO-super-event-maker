@@ -59,13 +59,13 @@ body {
             },
             {
                 type: "text", text: "Faction Name",
-                x: 214, y: 10,
+                x: 214, y: 11,
                 classes: ["TNO-header-text"], style: "font-size: 16px",
                 replaceable: true
             },
             {
                 type: "text", text: "Leader Name",
-                x: 214, y: 28,
+                x: 214, y: 29,
                 classes: ["TNO-header-text"], style: "font-size: 16px",
                 replaceable: true
             },
