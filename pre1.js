@@ -11,6 +11,10 @@ var tno_templates = [
     font-family: aldrich;
     src: url("Aldrich.ttf")
 }
+@font-face {
+    font-family: gouranga;
+    src: url("Aldrich.ttf")
+}
 .TNO-header-text {
     color: white;
     font-family: bomb;
