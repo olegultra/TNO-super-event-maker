@@ -55,7 +55,7 @@ body {
             },
             {
                 type: "image", src: "economy_template.jpg",
-                x: 0, y: 0
+                x: 520, y: 0
             },
             {
                 type: "image", src: "заглушка.png",
