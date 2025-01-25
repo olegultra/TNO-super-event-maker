@@ -132,31 +132,31 @@ body {
         elements: [
             {
                 type: "image", src: "superevent_unknown.png",
-                x: 8, y: 53,
+                x: 8, y: 146,
                 width: 572, height: 390,
                 replaceable: true
             },
             {
                 type: "image", src: "superevent_new.png",
-                x: 0, y: 0,
+                x: 0, y: 93,
             },
             {
                 type: "text", text: "Quote\n-A person",
-                x: 120, y: 287,
+                x: 120, y: 380,
                 width: 455,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: right;",
                 replaceable: true
             },
             {
                 type: "text", text: "Button Text",
-                x: 194, y: 439,
+                x: 194, y: 532,
                 width: 200,
                 classes: ["TNO-header-text"], style: "font-size: 20px; text-align: center; text-shadow: 1px 0 1px #000000, 0 1px 1px #000000, -1px 0 1px #000000, 0 -1px 1px #000000;",
                 replaceable: true
             },
             {
                 type: "text", text: "Event Title",
-                x: 45, y: -4,
+                x: 45, y: 89,
                 width: 500,
                 classes: ["TNO-info-text"], style: "font-size: 20px; text-align: center;",
                 replaceable: true
