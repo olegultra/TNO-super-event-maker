@@ -64,6 +64,18 @@ body {
                 replaceable: true
             },
             {
+                type: "image", src: "заглушка.png",
+                x: 681, y: 33,
+                classes: ["center"],
+                replaceable: true
+            },
+            {
+                type: "image", src: "заглушка.png",
+                x: 738, y: 33,
+                classes: ["center"],
+                replaceable: true
+            },
+            {
                 type: "text", text: "Country Name",
                 x: 212, y: -4,
                 classes: ["TNO-header-text"], style: "font-size: 14.7px",
