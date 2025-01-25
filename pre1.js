@@ -65,6 +65,12 @@ body {
             },
             {
                 type: "image", src: "заглушка.png",
+                x: 483, y: 36,
+                classes: ["center"], style: "z-index: 2;",
+                replaceable: true
+            },
+            {
+                type: "image", src: "заглушка.png",
                 x: 681, y: 33,
                 classes: ["center"],
                 replaceable: true
