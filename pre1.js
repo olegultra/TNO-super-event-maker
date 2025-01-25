@@ -54,6 +54,10 @@ body {
                 x: 0, y: 0
             },
             {
+                type: "image", src: "economy_template.jpg",
+                x: 0, y: 0
+            },
+            {
                 type: "image", src: "заглушка.png",
                 x: 176, y: 36,
                 classes: ["center"],
