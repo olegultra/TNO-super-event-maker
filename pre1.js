@@ -59,26 +59,26 @@ body {
                 x: 520, y: 0
             },
             {
-                id: "dog2",
                 type: "image", src: "заглушка.png",
                 x: 176, y: 36,
                 classes: ["center"],
                 replaceable: true
             },
             {
-                id: "dog3",
                 type: "image", src: "заглушка.png",
                 x: 483, y: 36,
                 classes: ["center"], style: "z-index: 2;",
                 replaceable: true
             },
             {
+                id: "dog2", 
                 type: "image", src: "заглушка.png",
                 x: 671, y: 33,
                 classes: ["center"],
                 replaceable: true
             },
             {
+                id: "dog3", 
                 type: "image", src: "заглушка.png",
                 x: 738, y: 33,
                 classes: ["center"],
