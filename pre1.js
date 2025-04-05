@@ -54,16 +54,19 @@ body {
                 x: 0, y: 0
             },
             {
+                id: "dog1",
                 type: "image", src: "economy_template.jpg",
                 x: 520, y: 0
             },
             {
+                id: "dog2",
                 type: "image", src: "заглушка.png",
                 x: 176, y: 36,
                 classes: ["center"],
                 replaceable: true
             },
             {
+                id: "dog3",
                 type: "image", src: "заглушка.png",
                 x: 483, y: 36,
                 classes: ["center"], style: "z-index: 2;",
