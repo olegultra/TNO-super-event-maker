@@ -79,6 +79,8 @@
         <canvas id="pieChart"></canvas>
         <label id="one" for="peas">Показать газету</label>
         <input name = "peas" type = 'checkbox' id = 'bloggood'/>
+        <label id="two" for="pease">Показать панель экономики</label>
+        <input name = "pease" type = 'checkbox' id = 'bloggood1'/>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
         <!-- <input type="number" id="input0" placeholder="коммунизм">
@@ -162,6 +164,26 @@
                 cat7.style.display = "none";
             }
         }*/
+        </script>
+        <script>
+            const bloggood1 = document.getElementById("bloggood1");
+            const dog1 = document.getElementById("dog1");
+            const dog2 = document.getElementById("dog2");
+            const dog3 = document.getElementById("dog3");
+            dog1.style.visibility = "hidden";
+            dog2.style.visibility = "hidden";
+            dog3.style.visibility = "hidden";
+            bloggood1.addEventListener("change", () => {
+                if (bloggood1.checked) {
+                    dog1.style.visibility = "visible";
+                    dog2.style.visibility = "visible";
+                    dog3.style.visibility = "visible";
+                } else {
+                    dog1.style.visibility = "hidden";
+                    dog2.style.visibility = "hidden";
+                    dog3.style.visibility = "hidden";
+                }
+            });
         </script>
         <script>
         const colors = [
