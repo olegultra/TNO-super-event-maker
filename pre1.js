@@ -20,7 +20,7 @@ var tno_templates = [
     font-family: bomb;
 }
 .TNO-info-text {
-    color: #B2C9C2;
+    color: #9eb3ad;
     font-family: aldrich;
 }
 .TNO-newspaper {
