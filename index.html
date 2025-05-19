@@ -65,6 +65,10 @@
         label {
             color: white;
         }
+
+        #finalCanvas {
+            display: none;
+        }
             
         </style>
     </head>
@@ -77,12 +81,14 @@
         <div id="penis"></div> 
         <div id="content"></div>
         <canvas id="pieChart"></canvas>
+        <button onclick="saveAsImage()">Сохранить изображение</button>
         <label id="one" for="peas">Показать газету</label>
         <input name = "peas" type = 'checkbox' id = 'bloggood'/>
         <label id="two" for="pease">Показать панель экономики</label>
         <input name = "pease" type = 'checkbox' id = 'bloggood1'/>
         <div id="inputs"></div>
         <button onclick="updateChart()">Обновить диаграмму</button>
+        <canvas id="finalCanvas" width="1135" height="900"></canvas>
         <!-- <input type="number" id="input0" placeholder="коммунизм">
         <br/>
         <input type="number" id="input1" placeholder="социализм">
@@ -246,6 +252,52 @@
                    chart.data.datasets[0].data = newData;
                    chart.update();
                }
+        </script>
+        <script>
+            function saveAsImage() {
+                const canvas = document.getElementById('finalCanvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const editor = document.getElementById('editor');
+                const elements = Array.from(editor.children);
+                elements.sort((a, b) => {
+                    const z1 = parseInt(window.getComputedStyle(a).zIndex) || 0;
+                    const z2 = parseInt(window.getComputedStyle(b).zIndex) || 0;
+                    return z1 - z2;
+                });
+                Promise.all(elements.map(el => {
+                    if (el.tagName === 'IMG' && el.src) {
+                        return new Promise(resolve => {
+                            const img = new Image();
+                            img.crossOrigin = "anonymous";
+                            img.onload = () => resolve({ type: 'image', img, x: el.offsetLeft, y: el.offsetTop, width: el.width, height: el.height });
+                            img.src = el.src;
+                        });
+                    } else if (el.tagName === 'INPUT' && el.type === 'text') {
+                        return Promise.resolve({ type: 'text', value: el.value, x: el.offsetLeft, y: el.offsetTop });
+                    } else {
+                        return Promise.resolve(null);
+                    }
+                })).then(layers => {
+                    layers.forEach(layer => {
+                        if (!layer) return;
+                        if (layer.type === 'image') {
+                            ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
+                        } else if (layer.type === 'text') {
+                            ctx.font = '20px Arial';
+                            ctx.fillStyle = 'black';
+                            ctx.fillText(layer.value, layer.x, layer.y + 20);
+                        }
+                    });
+                    const dataURL = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = 'tno-superevent.png';
+                    document.body.appendChild(link); 
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            }
         </script>
     </body>
 </html>
