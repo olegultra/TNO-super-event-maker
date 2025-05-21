@@ -50,6 +50,7 @@ body {
                 replaceable: true
             },
             {
+                id: "img1", 
                 type: "image", src: "diplo_upper_win_bg.png",
                 x: 0, y: 0
             },
@@ -59,12 +60,14 @@ body {
                 x: 520, y: 0
             },
             {
+                id: "img2",
                 type: "image", src: "заглушка.png",
                 x: 176, y: 36,
                 classes: ["center"],
                 replaceable: true
             },
             {
+                id: "img3", 
                 type: "image", src: "заглушка.png",
                 x: 483, y: 36,
                 classes: ["center"], style: "z-index: 2;",
@@ -85,36 +88,42 @@ body {
                 replaceable: true
             },
             {
+                id: "txt1",
                 type: "text", text: "Country Name",
                 x: 212, y: -4,
                 classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
+                id: "txt2",
                 type: "text", text: "Faction Name",
                 x: 212, y: 13.5,
                 classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
+                id: "txt3",
                 type: "text", text: "Leader Name",
                 x: 212, y: 31,
                 classes: ["TNO-header-text"], style: "font-size: 14.7px",
                 replaceable: true
             },
             {
+                id: "txt4",
                 type: "text", text: "Party Name",
                 x: 236, y: 73,
                 classes: ["TNO-info-text"], style: "font-size: 16px",
                 replaceable: true
             },
             {
+                id: "txt5",
                 type: "text", text: "Ideology",
                 x: 236, y: 95,
                 classes: ["TNO-info-text"], style: "font-size: 16px",
                 replaceable: true
             },
             {
+                id: "txt6",
                 type: "text", text: "Election Label",
                 x: 236, y: 119,
                 classes: ["TNO-info-text"], style: "font-size: 16px",
@@ -128,17 +137,20 @@ body {
                 replaceable: true
             },*/
             {
+                id: "img5",
                 type: "image", src: "pol_piechart_overlay.png",
                 x: 141, y: 81,
                 style: "z-index: 15"
             },
             {
+                id: "img6",
                 type: "image", src: "заглушка.png",
                 x: 175, y: 191,
                 classes: ["center"], style: "transform: scale(90%) translate(-50%, -55%);",
                 replaceable: true
             },
             {
+                id: "txt7",
                 type: "text", text: "Focus Name",
                 x: 234, y: 160,
                 width: 272,
@@ -152,16 +164,19 @@ body {
         y: 40,
         elements: [
             {
+                id: "img7",
                 type: "image", src: "superevent_unknown.png",
                 x: 8, y: 146,
                 width: 572, height: 390,
                 replaceable: true
             },
             {
+                id: "img8",
                 type: "image", src: "superevent_new.png",
                 x: 0, y: 93,
             },
             {
+                id: "txt8",
                 type: "text", text: "Quote\n-A person",
                 x: 120, y: 380,
                 width: 455,
@@ -169,6 +184,7 @@ body {
                 replaceable: true
             },
             {
+                id: "txt9",
                 type: "text", text: "Button Text",
                 x: 194, y: 532,
                 width: 200,
@@ -176,6 +192,7 @@ body {
                 replaceable: true
             },
             {
+                id: "txt10",
                 type: "text", text: "Event Title",
                 x: 45, y: 89,
                 width: 500,
