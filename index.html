@@ -293,12 +293,12 @@
                     txt1, txt2, txt3, txt4, txt5, txt6, img5, img6,
                     txt7, img7, img8, txt8, txt9, txt10, cat1, cat2,
                     cat3, cat4, cat5, cat6, cat7, pieChart
-                ].filter(el => el !== null);
+                ];/**.filter(el => el !== null);
                 elements.sort((a, b) => {
                     const z1 = parseInt(window.getComputedStyle(a).zIndex) || 0;
                     const z2 = parseInt(window.getComputedStyle(b).zIndex) || 0;
                     return z1 - z2;
-                });
+                });**/
                 Promise.all(elements.map(el => {
                     if (el.tagName === 'IMG' && el.src) {
                         return new Promise(resolve => {
