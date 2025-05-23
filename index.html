@@ -378,18 +378,21 @@
                     return z1 - z2;
                 });
                 Promise.all(elements.map(el => {
+                    const rect = el.getBoundingClientRect(); 
+                    const x = rect.left - containerRect.left; 
+                    const y = rect.top - containerRect.top;
                     if (el.tagName === 'IMG' && el.src) {
                         return new Promise(resolve => {
                             const img = new Image();
                             img.crossOrigin = "anonymous";
-                            img.onload = () => resolve({ type: 'image', img, x: el.offsetLeft, y: el.offsetTop, width: el.width, height: el.height });
+                            img.onload = () => resolve({ type: 'image', img, x, y, width: rect.width, height: rect.height });
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
                     } else if (el.tagName === 'INPUT' && el.type === 'text') {
-                        return Promise.resolve({ type: 'text', value: el.value, x: el.offsetLeft, y: el.offsetTop });
+                        return Promise.resolve({ type: 'text', value: el.value, x, y });
                     } else if (el.tagName === 'CANVAS') {
-                        return Promise.resolve({ type: 'canvas', canvas: el, x: el.offsetLeft, y: el.offsetTop, width: el.width, height: el.height });
+                        return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
                     } else {
                         return Promise.resolve(null);
                     }
@@ -402,9 +405,8 @@
                             ctx.font = '20px Arial';
                             ctx.fillStyle = 'black';
                             ctx.fillText(layer.value, layer.x, layer.y + 20);
-                        } else if (layer.type === 'canvas') {
-                            ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
-                        }
+                        } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
+                                                            }
                     });
                     const dataURL = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
