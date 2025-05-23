@@ -254,7 +254,7 @@
                }
         </script>
         <script>
-            function saveAsImage() {
+            /**function saveAsImage() {
                 const canvas = document.getElementById('finalCanvas');
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -331,6 +331,95 @@
                     link.click();
                     document.body.removeChild(link);
                 });
+            }**/
+            function saveAsImage() {
+                const canvas = document.getElementById('finalCanvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const flag = document.getElementById('flag');
+                const portrait = document.getElementById('portrait');
+                const img1 = document.getElementById('img1');
+                const dog1 = document.getElementById('dog1');
+                const img2 = document.getElementById('img2');
+                const img3 = document.getElementById('img3');
+                const dog2 = document.getElementById('dog2');
+                const dog3 = document.getElementById('dog3');
+                const txt1 = document.getElementById('txt1');
+                const txt2 = document.getElementById('txt2');
+                const txt3 = document.getElementById('txt3');
+                const txt4 = document.getElementById('txt4');
+                const txt5 = document.getElementById('txt5');
+                const txt6 = document.getElementById('txt6');
+                const img5 = document.getElementById('img5');
+                const img6 = document.getElementById('img6');
+                const txt7 = document.getElementById('txt7');
+                const img7 = document.getElementById('img7');
+                const img8 = document.getElementById('img8');
+                const txt8 = document.getElementById('txt8');
+                const txt9 = document.getElementById('txt9');
+                const txt10 = document.getElementById('txt10');
+                const cat1 = document.getElementById('cat1');
+                const cat2 = document.getElementById('cat2');
+                const cat3 = document.getElementById('cat3');
+                const cat4 = document.getElementById('cat4');
+                const cat5 = document.getElementById('cat5');
+                const cat6 = document.getElementById('cat6');
+                const cat7 = document.getElementById('cat7');
+                const pieChart = document.getElementById('pieChart');
+                const elements = [
+                    flag, portrait, img1, dog1, img2, img3, dog2, dog3,
+                    txt1, txt2, txt3, txt4, txt5, txt6, img5, img6,
+                    txt7, img7, img8, txt8, txt9, txt10, cat1, cat2,
+                    cat3, cat4, cat5, cat6, cat7, pieChart
+                ].filter(el => el && isVisible(el)); 
+                elements.sort((a, b) => {
+                    const z1 = parseInt(window.getComputedStyle(a).zIndex) || 0;
+                    const z2 = parseInt(window.getComputedStyle(b).zIndex) || 0;
+                    return z1 - z2;
+                });
+                Promise.all(elements.map(el => {
+                    if (el.tagName === 'IMG' && el.src) {
+                        return new Promise(resolve => {
+                            const img = new Image();
+                            img.crossOrigin = "anonymous";
+                            img.onload = () => resolve({ type: 'image', img, x: el.offsetLeft, y: el.offsetTop, width: el.width, height: el.height });
+                            img.onerror = () => resolve(null); 
+                            img.src = el.src;
+                        });
+                    } else if (el.tagName === 'INPUT' && el.type === 'text') {
+                        return Promise.resolve({ type: 'text', value: el.value, x: el.offsetLeft, y: el.offsetTop });
+                    } else if (el.tagName === 'CANVAS') {
+                        return Promise.resolve({ type: 'canvas', canvas: el, x: el.offsetLeft, y: el.offsetTop, width: el.width, height: el.height });
+                    } else {
+                        return Promise.resolve(null);
+                    }
+                })).then(layers => {
+                    layers.forEach(layer => {
+                        if (!layer) return;
+                        if (layer.type === 'image') {
+                            ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
+                        } else if (layer.type === 'text') {
+                            ctx.font = '20px Arial';
+                            ctx.fillStyle = 'black';
+                            ctx.fillText(layer.value, layer.x, layer.y + 20);
+                        } else if (layer.type === 'canvas') {
+                            ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
+                        }
+                    });
+                    const dataURL = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = 'tno-superevent.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }).catch(error => {
+                    console.error('Ошибка при сохранении изображения:', error);
+                });
+            }
+            function isVisible(element) {
+                const style = window.getComputedStyle(element);
+                return style.visibility !== 'hidden' && style.display !== 'none';
             }
         </script>
     </body>
