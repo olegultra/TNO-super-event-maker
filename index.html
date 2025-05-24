@@ -406,7 +406,7 @@
                         if (!layer) return;
                         if (layer.type === 'image') {
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
-                        } else if (layer.type === 'text') {
+                        } else if (layer.type === 'custom-text') {
                             ctx.font = '20px Arial'; 
                             ctx.fillStyle = 'black'; 
                             ctx.fillText(layer.value, layer.x, layer.y + 20); 
