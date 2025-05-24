@@ -91,7 +91,7 @@ body {
                 id: "txt1",
                 type: "text", text: "Country Name",
                 x: 212, y: -4,
-                classes: ["TNO-header-text"], style: "font-size: 14.7px",
+                classes: ["TNO-header-text"], style: "font-size: 14.7px; display: inline-block;",
                 replaceable: true
             },
             {
