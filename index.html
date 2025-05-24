@@ -394,7 +394,7 @@
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
-                    } else if (el.type === 'text') {
+                    } else if (el.id === 'txt1') {
                         return Promise.resolve({ type: 'custom-text', value: el.value.trim(), x, y });
                     } else if (el.tagName === 'CANVAS') {
                         return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
