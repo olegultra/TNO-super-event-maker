@@ -335,7 +335,7 @@
                     document.body.removeChild(link);
                 });
             }**/
-            /**function saveAsImage() {
+            function saveAsImage() {
                 const canvas = document.getElementById('finalCanvas');
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -416,22 +416,6 @@
                     const dataURL = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
                     link.href = dataURL;
-                    link.download = 'tno-superevent.png';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }).catch(error => {
-                    console.error('Ошибка при сохранении изображения:', error);
-                });
-            }**/
-            function saveAsImage() {
-                const container = document.getElementById('tr');
-                html2canvas(container, {
-                    foreignObjectRendering: true, 
-                    scale: 2, 
-                }).then(canvas => {
-                    const link = document.createElement('a');
-                    link.href = canvas.toDataURL('image/png');
                     link.download = 'tno-superevent.png';
                     document.body.appendChild(link);
                     link.click();
