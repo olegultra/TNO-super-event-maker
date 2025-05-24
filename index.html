@@ -20,6 +20,7 @@
         <noscript><div><img src="https://mc.yandex.ru/watch/99714144" style="position:absolute; visibility:hidden; left:-9999px;" alt="" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js "></script>
         <meta content="TNO Super Events Generator" property="og:title">
         <meta content="https://tombricks.github.io/HOI4-Generator/assets/embed.png" property="og:image">
         <meta content="https://tombricks.github.io/HOI4-Generator/assets/embed.png" property="twitter:image:src">
@@ -334,7 +335,7 @@
                     document.body.removeChild(link);
                 });
             }**/
-            function saveAsImage() {
+            /**function saveAsImage() {
                 const canvas = document.getElementById('finalCanvas');
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -415,6 +416,22 @@
                     const dataURL = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
                     link.href = dataURL;
+                    link.download = 'tno-superevent.png';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }).catch(error => {
+                    console.error('Ошибка при сохранении изображения:', error);
+                });
+            }**/
+            function saveAsImage() {
+                const container = document.getElementById('tr');
+                html2canvas(container, {
+                    foreignObjectRendering: true, 
+                    scale: 2, 
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
                     link.download = 'tno-superevent.png';
                     document.body.appendChild(link);
                     link.click();
