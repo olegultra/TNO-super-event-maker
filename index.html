@@ -408,7 +408,6 @@
                         } else if (layer.type === 'text') {
                             ctx.font = '20px Arial';
                             ctx.fillStyle = 'black';
-                            ctx.fillText(layer.value, layer.x, layer.y + 20);
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
                     });
