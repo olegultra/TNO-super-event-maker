@@ -395,7 +395,7 @@
                             img.src = el.src;
                         });
                     } else if (el.tagName === 'INPUT' && el.type === 'text') {
-                        return Promise.resolve({ type: 'custom-text', value: el.value.trim(), x, y });
+                        return Promise.resolve({ type: 'text', value: el.value.trim(), x, y });
                     } else if (el.tagName === 'CANVAS') {
                         return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
                     } else {
@@ -406,10 +406,12 @@
                         if (!layer) return;
                         if (layer.type === 'image') {
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
-                        } else if (layer.type === 'custom-text') {
+                        } else if (layer.type === 'text') {
                             ctx.font = '20px Arial'; 
                             ctx.fillStyle = 'black'; 
-                            ctx.fillText(layer.value, layer.x, layer.y + 20); 
+                            ctx.textBaseline = 'top';
+                            const text = layer.value;
+                            ctx.fillText(text, layer.x, layer.y + 20); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
                     });
