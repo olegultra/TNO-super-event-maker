@@ -394,7 +394,7 @@
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
-                    } else if (el.tagName === 'INPUT' && el.type === 'text') {
+                    } else if (el.id === 'txt1') {
                         return Promise.resolve({ type: 'text', value: el.value.trim(), x, y });
                     } else if (el.tagName === 'CANVAS') {
                         return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
@@ -408,8 +408,7 @@
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
                         } else if (layer.type === 'text') {
                             ctx.font = '20px Arial'; 
-                            ctx.fillStyle = 'black'; 
-                            ctx.textBaseline = 'top';
+                            ctx.fillStyle = 'white'; 
                             const text = layer.value;
                             ctx.fillText(text, layer.x, layer.y + 20); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
