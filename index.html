@@ -394,7 +394,7 @@
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
-                    } else if (el.tagName === 'P' && el.id.startswith('txt')) {
+                    } else if (el.tagName === 'P' && el.id.startsWith('txt')) {
                         const text1 = el.textContent;
                         return Promise.resolve({ type: 'text', value: text1, x, y });
                     } else if (el.tagName === 'CANVAS') {
