@@ -394,8 +394,9 @@
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
-                    } else if (el.tagName === 'TEXTAREA') {
-                        return Promise.resolve({ type: 'text', value: el.value, x, y });
+                    } else if (el.tagName === 'P' && el.id.startswith('txt')) {
+                        const text1 = el.textContent;
+                        return Promise.resolve({ type: 'text', value: text1, x, y });
                     } else if (el.tagName === 'CANVAS') {
                         return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
                     } else {
