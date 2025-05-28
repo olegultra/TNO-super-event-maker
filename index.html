@@ -423,11 +423,11 @@
                         if (layer.type === 'image') {
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
                         } else if (layer.type === 'text') {
-                            if (layer.id in elements_1) {
+                            if (layer.id === 'txt1' || layer.id === 'txt2' || layer.id === 'txt3') {
                                 ctx.font = '14.7px bomb'; 
                                 ctx.fillStyle = 'white'; 
                             }
-                            else if (layer.id in elements_2) {
+                            else if (layer.id === 'txt4' || layer.id === 'txt5' || layer.id === 'txt6') {
                                 ctx.font = '16px aldrich'; 
                                 ctx.fillStyle = '#9eb3ad'; 
                             }
