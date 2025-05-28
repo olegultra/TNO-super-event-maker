@@ -408,6 +408,7 @@
                         });
                     } else if (el.tagName === 'P' && (el.id.startsWith('txt') || el.id.startsWith('cat'))) {
                         const text1 = el.textContent;
+                        const computedStyle = window.getComputedStyle(el);
                         const textAlign = computedStyle.textAlign || 'left';
                         const width = el.getBoundingClientRect().width;
                         return Promise.resolve({ id: el.id, type: 'text', value: text1, x, y, width, textAlign });
