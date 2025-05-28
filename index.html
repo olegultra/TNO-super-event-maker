@@ -33,6 +33,16 @@
             src: url("Bombardier-Regular.ttf");
         }
 
+        @font-face {
+            font-family: aldrich;
+            src: url("Aldrich.ttf");
+        }
+
+        @font-face {
+            font-family: gouranga;
+            src: url("Gouranga-Pixel.ttf");
+        }
+
         .__ymDebuggerOpener {
             opacity: 0;
         }
@@ -377,6 +387,8 @@
                     txt7, img7, img8, txt8, txt9, txt10, cat1, cat2,
                     cat3, cat4, cat5, cat6, cat7, pieChart
                 ].filter(el => el && isVisible(el)); 
+                const elements_1 = [ txt1, txt2, txt3 ]; 
+                const elements_2 = [ txt4, txt5, txt6 ];
                 elements.sort((a, b) => {
                     const z1 = parseInt(window.getComputedStyle(a).zIndex) || 0;
                     const z2 = parseInt(window.getComputedStyle(b).zIndex) || 0;
@@ -394,9 +406,11 @@
                             img.onerror = () => resolve(null); 
                             img.src = el.src;
                         });
-                    } else if (el.tagName === 'P' && el.id.startsWith('txt')) {
+                    } else if (el.tagName === 'P' && (el.id.startsWith('txt') || el.id.startsWith('cat'))) {
                         const text1 = el.textContent;
-                        return Promise.resolve({ type: 'text', value: text1, x, y });
+                        const textAlign = computedStyle.textAlign || 'left';
+                        const width = el.getBoundingClientRect().width;
+                        return Promise.resolve({ id: el.id, type: 'text', value: text1, x, y, width, textAlign });
                     } else if (el.tagName === 'CANVAS') {
                         return Promise.resolve({ type: 'canvas', canvas: el, x, y, width: rect.width, height: rect.height });
                     } else {
@@ -408,9 +422,78 @@
                         if (layer.type === 'image') {
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
                         } else if (layer.type === 'text') {
-                            ctx.font = '20px Arial'; 
-                            ctx.fillStyle = 'white'; 
-                            ctx.fillText(layer.value, layer.x, layer.y + 20); 
+                            if (layer.id in elements_1) {
+                                ctx.font = '14.7px bomb'; 
+                                ctx.fillStyle = 'white'; 
+                            }
+                            else if (layer.id in elements_2) {
+                                ctx.font = '16px aldrich'; 
+                                ctx.fillStyle = '#9eb3ad'; 
+                            }
+                            else if (layer.id === 'txt7') {
+                                ctx.font = '19px aldrich'; 
+                                ctx.fillStyle = '#9eb3ad';
+                            }
+                            else if (layer.id === 'txt8') {
+                                ctx.font = '20px bomb'; 
+                                ctx.fillStyle = 'white'; 
+                            }
+                            else if (layer.id === 'txt9') {
+                                ctx.font = '20px bomb'; 
+                                const originalElement = document.getElementById('txt9');
+                                const computedStyle = window.getComputedStyle(originalElement);
+                                ctx.fillStyle = computedStyle.color || 'white';
+                                const textShadow = computedStyle.textShadow;
+                                if (textShadow && textShadow !== 'none') {
+                                    const shadows = textShadow.split(',').map(sh => sh.trim());
+                                    for (const sh of shadows) {
+                                        const match = sh.match(/(-?\d+)px\s+(-?\d+)px\s+(\d+)px\s+(#[0-9a-fA-F]{3,6}|rgba?\([^)]+\))/);
+                                        if (!match) continue;
+                                        const offsetX = parseInt(match[1]);
+                                        const offsetY = parseInt(match[2]);
+                                        const blur = parseInt(match[3]);
+                                        const color = match[4];
+                                        ctx.shadowOffsetX = offsetX;
+                                        ctx.shadowOffsetY = offsetY;
+                                        ctx.shadowBlur = blur;
+                                        ctx.shadowColor = color;
+                                        ctx.fillText(layer.value, layer.x, layer.y);
+                                    }
+                                    ctx.shadowOffsetX = 0;
+                                    ctx.shadowOffsetY = 0;
+                                    ctx.shadowBlur = 0;
+                                    ctx.shadowColor = 'transparent';
+                                    ctx.fillStyle = computedStyle.color || 'white';
+                            }
+                            }
+                            else if (layer.id === 'txt10') {
+                                ctx.font = '20px aldrich'; 
+                                ctx.fillStyle = '#9eb3ad';
+                            }
+                            else if (layer.id === 'cat4') {
+                                ctx.font = '22px gouranga'; 
+                                ctx.fillStyle = 'black';
+                            }
+                            else if (layer.id === 'cat5') {
+                                ctx.font = '16px gouranga'; 
+                                ctx.fillStyle = 'black';
+                            }
+                            else if (layer.id === 'cat7') {
+                                ctx.font = '20px gouranga'; 
+                                ctx.fillStyle = 'black';
+                            }
+                            else {
+                                ctx.font = '16px aldrich'; 
+                                ctx.fillStyle = '#9eb3ad';
+                            }
+                            ctx.textAlign = layer.textAlign || 'left';
+                            let drawX = layer.x;
+                            if (ctx.textAlign === 'center') {
+                                drawX = layer.x + layer.width / 2;
+                            } else if (ctx.textAlign === 'right') {
+                                drawX = layer.x + layer.width;
+                            }
+                            ctx.fillText(layer.value, drawX, layer.y + 20); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
                     });
