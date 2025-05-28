@@ -494,7 +494,11 @@
                             } else if (ctx.textAlign === 'right') {
                                 drawX = layer.x + layer.width;
                             }
-                            ctx.fillText(layer.value, drawX, layer.y + 20); 
+                            let drawY = layer.y + 20; 
+                            if (layer.id === 'txt1' || layer.id === 'txt2' || layer.id === 'txt3') {
+                                drawY = drawY - 10; 
+                            }
+                            ctx.fillText(layer.value, drawX, drawY); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
                     });
