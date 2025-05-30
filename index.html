@@ -436,36 +436,21 @@
                                 ctx.fillStyle = '#9eb3ad';
                             }
                             else if (layer.id === 'txt8') {
+                                const originalElement = document.getElementById('txt8');
+                                const computedStyle = window.getComputedStyle(originalElement);
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white'; 
+                                const rect = originalElement.getBoundingClientRect();
+                                const maxWidth = rect.width;
+                                const lineHeight = parseInt(computedStyle.lineHeight) || 24; 
+                                wrapText(ctx, layer.value, layer.x, layer.y, maxWidth, lineHeight);
+                                continue; 
                             }
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
-                                const originalElement = document.getElementById('txt9');
-                                const computedStyle = window.getComputedStyle(originalElement);
                                 ctx.fillStyle = computedStyle.color || 'white';
-                                const textShadow = computedStyle.textShadow;
-                                if (textShadow && textShadow !== 'none') {
-                                    const shadows = textShadow.split(',').map(sh => sh.trim());
-                                    for (const sh of shadows) {
-                                        const match = sh.match(/(-?\d+)px\s+(-?\d+)px\s+(\d+)px\s+(#[0-9a-fA-F]{3,6}|rgba?\([^)]+\))/);
-                                        if (!match) continue;
-                                        const offsetX = parseInt(match[1]);
-                                        const offsetY = parseInt(match[2]);
-                                        const blur = parseInt(match[3]);
-                                        const color = match[4];
-                                        ctx.shadowOffsetX = offsetX;
-                                        ctx.shadowOffsetY = offsetY;
-                                        ctx.shadowBlur = blur;
-                                        ctx.shadowColor = color;
-                                        ctx.fillText(layer.value, layer.x, layer.y);
-                                    }
-                                    ctx.shadowOffsetX = 0;
-                                    ctx.shadowOffsetY = 0;
-                                    ctx.shadowBlur = 0;
-                                    ctx.shadowColor = 'transparent';
-                                    ctx.fillStyle = 'white';
-                            }
+                                drawTextWithMultipleShadows(ctx, layer.value, 100, 200, { fillStyle: 'white' });
+                                continue;
                             }
                             else if (layer.id === 'txt10') {
                                 ctx.font = '20px aldrich'; 
@@ -501,6 +486,9 @@
                             else if (layer.id === 'txt4' || layer.id === 'txt5' || layer.id === 'txt6') {
                                 drawY = drawY - 3; 
                             }
+                            else if (layer.id === 'txt10' || layer,id === 'txt9') {
+                                drawY = drawY - 1; 
+                            }
                             ctx.fillText(layer.value, drawX, drawY); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
@@ -519,6 +507,44 @@
             function isVisible(element) {
                 const style = window.getComputedStyle(element);
                 return style.visibility !== 'hidden' && style.display !== 'none';
+            }
+            function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+                const words = text.split(' ');
+                let line = '';
+                for (let n = 0; n < words.length; n++) {
+                    const testLine = line + words[n] + ' ';
+                    const metrics = ctx.measureText(testLine);
+                    const testWidth = metrics.width;
+                    if (testWidth > maxWidth && n > 0) {
+                        ctx.fillText(line, x, y);
+                        line = words[n] + ' ';
+                        y += lineHeight;
+                    } else {
+                        line = testLine;
+                    }
+                }
+                ctx.fillText(line, x, y);
+            }
+            function drawTextWithMultipleShadows(ctx, text, x, y, options) {
+                const shadows = [
+                    { offsetX: 1, offsetY: 0 },
+                    { offsetX: 0, offsetY: 1 },
+                    { offsetX: -1, offsetY: 0 },
+                    { offsetX: 0, offsetY: -1 }
+                ];
+                for (const shadow of shadows) {
+                    ctx.shadowColor = '#000000';
+                    ctx.shadowBlur = 1;
+                    ctx.shadowOffsetX = shadow.offsetX;
+                    ctx.shadowOffsetY = shadow.offsetY;
+                    ctx.fillText(text, x, y);
+                }
+                ctx.shadowColor = 'transparent';
+                ctx.shadowBlur = 0;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 0;
+                ctx.fillStyle = options.fillStyle || 'white';
+                ctx.fillText(text, x, y);
             }
         </script>
     </body>
