@@ -398,6 +398,7 @@
                     const rect = el.getBoundingClientRect(); 
                     const x = rect.left - containerRect.left; 
                     const y = rect.top - containerRect.top;
+                    const flag = true; 
                     if (el.tagName === 'IMG' && el.src) {
                         return new Promise(resolve => {
                             const img = new Image();
@@ -448,7 +449,8 @@
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white';
-                                drawTextWithMultipleShadows(ctx, layer.value, 100, 200, { fillStyle: 'white' });
+                                drawTextWithMultipleShadows(ctx, layer.value, layer.x, layer.y+17, { fillStyle: 'white' });
+                                flag = false; 
                             }
                             else if (layer.id === 'txt10') {
                                 ctx.font = '20px aldrich'; 
@@ -487,7 +489,7 @@
                             else if (layer.id === 'txt10' || layer,id === 'txt9') {
                                 drawY = drawY - 1; 
                             }
-                            ctx.fillText(layer.value, drawX, drawY); 
+                            if (flag) ctx.fillText(layer.value, drawX, drawY); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
                     });
