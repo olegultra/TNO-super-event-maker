@@ -398,7 +398,6 @@
                     const rect = el.getBoundingClientRect(); 
                     const x = rect.left - containerRect.left; 
                     const y = rect.top - containerRect.top;
-                    let flag = true; 
                     if (el.tagName === 'IMG' && el.src) {
                         return new Promise(resolve => {
                             const img = new Image();
@@ -489,7 +488,7 @@
                             else if (layer.id === 'txt10' || layer,id === 'txt9') {
                                 drawY = drawY - 1; 
                             }
-                            if (flag) ctx.fillText(layer.value, drawX, drawY); 
+                            ctx.fillText(layer.value, drawX, drawY); 
                             flag = true; 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
                                                             }
