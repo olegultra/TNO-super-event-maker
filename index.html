@@ -448,7 +448,7 @@
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white';
-                                drawTextWithMultipleShadows(ctx, layer.value, layer.x, layer.y+17, { fillStyle: 'white' });
+                                drawTextWithMultipleShadows(ctx, layer.value, layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
                             }
                             else if (layer.id === 'txt10') {
                                 ctx.font = '20px aldrich'; 
@@ -485,7 +485,7 @@
                                 drawY = drawY - 3; 
                             }
                             else if (layer.id === 'txt10' || layer,id === 'txt9') {
-                                drawY = drawY - 1; 
+                                drawY = drawY - 2; 
                             }
                             ctx.fillText(layer.value, drawX, drawY); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
