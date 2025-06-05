@@ -444,6 +444,7 @@
                                 const maxWidth = rect.width;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24; 
                                 wrapText(ctx, layer.value, layer.x+maxWidth, layer.y+18, maxWidth, lineHeight);
+                                return; 
                             }
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
