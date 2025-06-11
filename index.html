@@ -443,13 +443,13 @@
                                 const rect = originalElement.getBoundingClientRect();
                                 const maxWidth = rect.width;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24; 
-                                wrapText(ctx, layer.value, layer.x+maxWidth - 12, layer.y+18, maxWidth, lineHeight);
+                                wrapText(ctx, layer.value, layer.x+maxWidth - 22, layer.y+18, maxWidth, lineHeight);
                                 return; 
                             }
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white';
-                                drawTextWithMultipleShadows(ctx, layer.value, 39 + layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
+                                drawTextWithMultipleShadows(ctx, layer.value, layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
                                 return; 
                             }
                             else if (layer.id === 'txt10') {
