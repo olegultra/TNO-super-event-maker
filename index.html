@@ -509,20 +509,38 @@
                 return style.visibility !== 'hidden' && style.display !== 'none';
             }
             function wrapTextRightAligned(ctx, text, x, y, maxWidth, lineHeight) {
-                const paragraphs = text.split('\n'); 
+                const originalTransform = ctx.getTransform();
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                const paragraphs = text.split('\n');
                 let currentY = y;
                 for (let pi = 0; pi < paragraphs.length; pi++) {
                     let line = '';
                     const words = paragraphs[pi].split(' ');
                     for (let n = 0; n < words.length; n++) {
-                        const testLine = line + words[n] + ' ';
+                        const word = words[n];
+                        const testLine = line + word + ' ';
                         const testWidth = ctx.measureText(testLine).width;
                         if (testWidth > maxWidth && line !== '') {
                             drawTextLine(line, currentY);
                             currentY += lineHeight;
-                            line = words[n] + ' ';
+                            line = word + ' ';
                         } else {
                             line = testLine;
+                        }
+                        if (ctx.measureText(word).width > maxWidth) {
+                            let brokenWord = '';
+                            for (let i = 0; i < word.length; i++) {
+                                const char = word[i];
+                                const tryWord = brokenWord + char;
+                                if (ctx.measureText(tryWord).width > maxWidth) {
+                                    drawTextLine(brokenWord, currentY);
+                                    currentY += lineHeight;
+                                    brokenWord = char;
+                                } else {
+                                    brokenWord += char;
+                                }
+                            }
+                            line = brokenWord + ' ';
                         }
                     }
                     if (line.trim() !== '') {
@@ -530,6 +548,7 @@
                         currentY += lineHeight;
                     }
                 }
+                ctx.setTransform(originalTransform);
                 function drawTextLine(line, y) {
                     const textWidth = ctx.measureText(line).width;
                     const alignedX = x + (maxWidth - textWidth);
