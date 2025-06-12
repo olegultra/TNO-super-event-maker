@@ -508,22 +508,33 @@
                 const style = window.getComputedStyle(element);
                 return style.visibility !== 'hidden' && style.display !== 'none';
             }
-            function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-                const words = text.split(' ');
-                let line = '';
-                for (let n = 0; n < words.length; n++) {
-                    const testLine = line + words[n] + ' ';
-                    const metrics = ctx.measureText(testLine);
-                    const testWidth = metrics.width;
-                    if (testWidth > maxWidth && n > 0) {
-                        ctx.fillText(line, x, y);
-                        line = words[n] + ' ';
-                        y += lineHeight;
-                    } else {
-                        line = testLine;
+            function wrapTextRightAligned(ctx, text, x, y, maxWidth, lineHeight) {
+                const paragraphs = text.split('\n'); 
+                let currentY = y;
+                for (let pi = 0; pi < paragraphs.length; pi++) {
+                    let line = '';
+                    const words = paragraphs[pi].split(' ');
+                    for (let n = 0; n < words.length; n++) {
+                        const testLine = line + words[n] + ' ';
+                        const testWidth = ctx.measureText(testLine).width;
+                        if (testWidth > maxWidth && line !== '') {
+                            drawTextLine(line, currentY);
+                            currentY += lineHeight;
+                            line = words[n] + ' ';
+                        } else {
+                            line = testLine;
+                        }
+                    }
+                    if (line.trim() !== '') {
+                        drawTextLine(line, currentY);
+                        currentY += lineHeight;
                     }
                 }
-                ctx.fillText(line, x, y);
+                function drawTextLine(line, y) {
+                    const textWidth = ctx.measureText(line).width;
+                    const alignedX = x + (maxWidth - textWidth);
+                    ctx.fillText(line, alignedX, y);
+                }
             }
             function drawTextWithMultipleShadows(ctx, text, x, y, options) {
                 const shadows = [
