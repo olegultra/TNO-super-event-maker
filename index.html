@@ -440,8 +440,11 @@
                                 const computedStyle = window.getComputedStyle(originalElement);
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white'; 
+                                const canvasRect = canvas.getBoundingClientRect();
+                                const scaleX = canvas.width / canvasRect.width;
+                                const scaleY = canvas.height / canvasRect.height;
                                 const rect = originalElement.getBoundingClientRect();
-                                const maxWidth = rect.width;
+                                const maxWidth = rect.width * scaleX;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24; 
                                 wrapTextRightAligned(ctx, layer.value, layer.x, layer.y+18, maxWidth, lineHeight);
                                 return; 
