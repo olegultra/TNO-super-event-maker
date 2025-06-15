@@ -438,7 +438,6 @@
                             else if (layer.id === 'txt8') {
                                 const originalElement = document.getElementById('txt8');
                                 const computedStyle = window.getComputedStyle(originalElement);
-                                ctx.save();
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white'; 
                                 const canvasRect = canvas.getBoundingClientRect();
@@ -450,7 +449,6 @@
                                 const canvasX = layer.x * scaleX;
                                 const canvasY = layer.y * scaleY;
                                 wrapTextRightAligned(ctx, layer.value, canvasX, canvasY + 18, maxWidth, lineHeight * scaleY);
-                                ctx.restore();
                                 return;
                             } 
                             else if (layer.id === 'txt9') {
