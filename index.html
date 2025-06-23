@@ -514,6 +514,7 @@
                 return style.visibility !== 'hidden' && style.display !== 'none';
             }
             function wrapTextRightAligned(ctx, text, x, y, maxWidth, lineHeight) {
+                console.log("Рисую строку:", text, x, y);
                 const originalTransform = ctx.getTransform();
                 ctx.setTransform(1, 0, 0, 1, 0, 0);
                 const paragraphs = text.split('\n');
@@ -557,7 +558,6 @@
                 function drawTextLine(line, y) {
                     const textWidth = ctx.measureText(line).width;
                     const alignedX = x + (maxWidth - textWidth);
-                    console.log("Рисую строку:", line, alignedX, y);
                     ctx.fillText(line, alignedX, y);
                 }
             }
