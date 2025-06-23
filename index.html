@@ -555,9 +555,9 @@
                 }
                 ctx.setTransform(originalTransform);
                 function drawTextLine(line, y) {
-                    console.log("Рисую строку:", line);
                     const textWidth = ctx.measureText(line).width;
                     const alignedX = x + (maxWidth - textWidth);
+                    console.log("Рисую строку:", line, alignedX, y);
                     ctx.fillText(line, alignedX, y);
                 }
             }
