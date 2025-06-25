@@ -446,8 +446,8 @@
                                 const rect = originalElement.getBoundingClientRect();
                                 const maxWidth = rect.width * scaleX;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24;
-                                const canvasX = layer.x * scaleX;
-                                const canvasY = layer.y * scaleY;
+                                const canvasX = layer.x;
+                                const canvasY = layer.y;
                                 wrapTextRightAligned(ctx, layer.value, canvasX, canvasY + 18, maxWidth, lineHeight * scaleY);
                                 return;
                             } 
