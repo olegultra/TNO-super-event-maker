@@ -448,6 +448,7 @@
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24;
                                 const canvasX = layer.x;
                                 const canvasY = layer.y;
+                                console.log(scaleX, scaleY, layer.x, layer.y);
                                 wrapTextRightAligned(ctx, layer.value, canvasX, canvasY + 18, maxWidth, lineHeight * scaleY);
                                 return;
                             } 
