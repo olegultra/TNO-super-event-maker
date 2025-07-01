@@ -443,12 +443,12 @@
                                 const canvasRect = canvas.getBoundingClientRect();
                                 const scaleX = canvas.width / canvasRect.width;
                                 const scaleY = canvas.height / canvasRect.height;
+                                console.log(canvas.width, canvasRect.width, canvas.height, canvasRect.height);
                                 const rect = originalElement.getBoundingClientRect();
                                 const maxWidth = rect.width * scaleX;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24;
                                 const canvasX = layer.x;
                                 const canvasY = layer.y;
-                                console.log(scaleX, scaleY, layer.x, layer.y);
                                 wrapTextRightAligned(ctx, layer.value, canvasX, canvasY + 18, maxWidth, lineHeight * scaleY);
                                 return;
                             } 
