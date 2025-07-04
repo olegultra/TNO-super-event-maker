@@ -448,7 +448,8 @@
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24;
                                 const canvasX = layer.x * scaleX;
                                 const canvasY = layer.y * scaleY;
-                                wrapTextRightAligned(ctx, layer.value, layer.x, layer.y + 18, maxWidth, lineHeight * scaleY);
+                                console.log(scaleX, scaleY, canvas.width, canvasRect.width, rect.width, lineHeight); 
+                                wrapTextRightAligned(ctx, layer.value, layer.x, layer.y, maxWidth, lineHeight * scaleY);
                                 return;
                             } 
                             else if (layer.id === 'txt9') {
