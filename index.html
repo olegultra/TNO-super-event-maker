@@ -443,14 +443,13 @@
                                 const canvasRect = canvas.getBoundingClientRect();
                                 const scaleX = canvas.width / canvasRect.width;
                                 const scaleY = canvas.height / canvasRect.height;
-                                console.log(canvas.width, canvasRect.width, canvas.height, canvasRect.height);
                                 const rect = originalElement.getBoundingClientRect();
                                 const maxWidth = rect.width * scaleX;
                                 const lineHeight = parseInt(computedStyle.lineHeight) || 24;
-                                const canvasX = layer.x;
-                                const canvasY = layer.y;
-                                /**wrapTextRightAligned(ctx, layer.value, canvasX - 532, canvasY - 24, maxWidth, lineHeight * scaleY);
-                                return;**/
+                                const canvasX = layer.x * scaleX;
+                                const canvasY = layer.y * scaleY;
+                                wrapTextRightAligned(ctx, layer.value, layer.x, layer.y + 18, maxWidth, lineHeight * scaleY);
+                                return;
                             } 
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
