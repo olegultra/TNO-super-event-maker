@@ -436,21 +436,8 @@
                                 ctx.fillStyle = '#9eb3ad';
                             }
                             else if (layer.id === 'txt8') {
-                                const originalElement = document.getElementById('txt8');
-                                const computedStyle = window.getComputedStyle(originalElement);
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white'; 
-                                const canvasRect = canvas.getBoundingClientRect();
-                                const scaleX = canvas.width / canvasRect.width;
-                                const scaleY = canvas.height / canvasRect.height;
-                                const rect = originalElement.getBoundingClientRect();
-                                const maxWidth = rect.width * scaleX;
-                                const lineHeight = parseInt(computedStyle.lineHeight) || 24;
-                                const canvasX = layer.x * scaleX;
-                                const canvasY = layer.y * scaleY;
-                                console.log(scaleX, scaleY, canvas.width, canvasRect.width, rect.width, lineHeight); 
-                                wrapTextRightAligned(ctx, layer.value, layer.x, layer.y, maxWidth, lineHeight * scaleY);
-                                return;
                             } 
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
@@ -514,54 +501,6 @@
                 const style = window.getComputedStyle(element);
                 return style.visibility !== 'hidden' && style.display !== 'none';
             }
-            function wrapTextRightAligned(ctx, text, x, y, maxWidth, lineHeight) {
-                console.log("Рисую строку:", text, x, y);
-                const originalTransform = ctx.getTransform();
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-                const paragraphs = text.split('\n');
-                let currentY = y;
-                for (let pi = 0; pi < paragraphs.length; pi++) {
-                    let line = '';
-                    const words = paragraphs[pi].split(' ');
-                    for (let n = 0; n < words.length; n++) {
-                        const word = words[n];
-                        const testLine = line + word + ' ';
-                        const testWidth = ctx.measureText(testLine).width;
-                        if (testWidth > maxWidth && line !== '') {
-                            drawTextLine(line, currentY);
-                            currentY += lineHeight;
-                            line = word + ' ';
-                        } else {
-                            line = testLine;
-                        }
-                        if (ctx.measureText(word).width > maxWidth) {
-                            let brokenWord = '';
-                            for (let i = 0; i < word.length; i++) {
-                                const char = word[i];
-                                const tryWord = brokenWord + char;
-                                if (ctx.measureText(tryWord).width > maxWidth) {
-                                    drawTextLine(brokenWord, currentY);
-                                    currentY += lineHeight;
-                                    brokenWord = char;
-                                } else {
-                                    brokenWord += char;
-                                }
-                            }
-                            line = brokenWord + ' ';
-                        }
-                    }
-                    if (line.trim() !== '') {
-                        drawTextLine(line, currentY);
-                        currentY += lineHeight;
-                    }
-                }
-                ctx.setTransform(originalTransform);
-                function drawTextLine(line, y) {
-                    const textWidth = ctx.measureText(line).width;
-                    const alignedX = x + (maxWidth - textWidth);
-                    ctx.fillText(line, alignedX, y);
-                }
-            }
             function drawTextWithMultipleShadows(ctx, text, x, y, options) {
                 const shadows = [
                     { offsetX: 1, offsetY: 0 },
@@ -586,3 +525,4 @@
         </script>
     </body>
 </html>
+
