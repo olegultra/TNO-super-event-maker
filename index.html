@@ -442,7 +442,7 @@
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white';
-                                drawTextWithMultipleShadows(ctx, layer.value, layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
+                                drawTextWithMultipleShadows(ctx, layer.value, 10 + layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
                                 return; 
                             }
                             else if (layer.id === 'txt10') {
@@ -525,4 +525,5 @@
         </script>
     </body>
 </html>
+
 
