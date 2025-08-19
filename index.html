@@ -438,6 +438,14 @@
                             else if (layer.id === 'txt8') {
                                 ctx.font = '20px bomb'; 
                                 ctx.fillStyle = 'white'; 
+                                ctx.textAlign = 'right';
+                                let text = document.getElementById('txt9').innerText; 
+                                let rectWidth = 455;
+                                let startX = 120; 
+                                let startY = 380;
+                                let lineHeight = 24;
+                                drawWrappedText(ctx, text, startX, startY, rectWidth, lineHeight, 'right');
+                                return;
                             } 
                             else if (layer.id === 'txt9') {
                                 ctx.font = '20px bomb'; 
@@ -522,9 +530,30 @@
                 ctx.fillStyle = options.fillStyle || 'white';
                 ctx.fillText(text, x, y);
             }
+            function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, align = 'right') {
+                ctx.textAlign = align; 
+                let words = text.split(' ');
+                let line = '';
+                let lines = [];
+                for (let i = 0; i < words.length; i++) {
+                    let testLine = line + words[i] + ' ';
+                    let testWidth = ctx.measureText(testLine).width;
+                    if (testWidth > maxWidth && i > 0) {
+                        lines.push(line.trim());
+                        line = words[i] + ' ';
+                    } else {
+                        line = testLine;
+                    }
+                }
+                lines.push(line.trim());
+                for (let j = 0; j < lines.length; j++) {
+                    ctx.fillText(lines[j], x, y + j * lineHeight);
+                }
+            }
         </script>
     </body>
 </html>
+
 
 
 
