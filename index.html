@@ -358,6 +358,7 @@
                 canvas.height = cssHeight * dpr;
                 ctx.scale(dpr, dpr);
                 ctx.clearRect(0, 0, cssWidth, cssHeight);
+                console.log(cssWidth, cssHeight, dpr, canvas.width, canvas.height); 
                 const container = document.getElementById('tr'); 
                 const containerRect = container.getBoundingClientRect();
                 const flag = document.getElementById('flag');
@@ -573,6 +574,7 @@
         </script>
     </body>
 </html>
+
 
 
 
