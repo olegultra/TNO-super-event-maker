@@ -79,6 +79,8 @@
 
         #finalCanvas {
             display: none;
+            width: 1220px;
+            height: 900px;
         }
             
         </style>
@@ -348,7 +350,14 @@
             function saveAsImage() {
                 const canvas = document.getElementById('finalCanvas');
                 const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const dpr = window.devicePixelRatio || 1;
+                const rect = canvas.getBoundingClientRect();
+                const cssWidth = rect.width;
+                const cssHeight = rect.height;
+                canvas.width = cssWidth * dpr;
+                canvas.height = cssHeight * dpr;
+                ctx.scale(dpr, dpr);
+                ctx.clearRect(0, 0, cssWidth, cssHeight);
                 const container = document.getElementById('tr'); 
                 const containerRect = container.getBoundingClientRect();
                 const flag = document.getElementById('flag');
@@ -423,54 +432,65 @@
                         if (layer.type === 'image') {
                             ctx.drawImage(layer.img, layer.x, layer.y, layer.width, layer.height);
                         } else if (layer.type === 'text') {
+                            let baseFontSize;
                             if (layer.id === 'txt1' || layer.id === 'txt2' || layer.id === 'txt3') {
-                                ctx.font = '14.7px bomb'; 
+                                baseFontSize = 14.7;
+                                ctx.font = `${baseFontSize * dpr}px bomb`;
                                 ctx.fillStyle = 'white'; 
                             }
                             else if (layer.id === 'txt4' || layer.id === 'txt5' || layer.id === 'txt6') {
-                                ctx.font = '16px aldrich'; 
+                                baseFontSize = 16;
+                                ctx.font = `${baseFontSize * dpr}px aldrich`; 
                                 ctx.fillStyle = '#9eb3ad'; 
                             }
                             else if (layer.id === 'txt7') {
-                                ctx.font = '19px aldrich'; 
+                                baseFontSize = 19;
+                                ctx.font = `${baseFontSize * dpr}px aldrich`;  
                                 ctx.fillStyle = '#9eb3ad';
                             }
                             else if (layer.id === 'txt8') {
-                                ctx.font = '20px bomb'; 
+                                baseFontSize = 20;
+                                ctx.font = `${baseFontSize * dpr}px bomb`; 
                                 ctx.fillStyle = 'white'; 
                                 ctx.textAlign = 'right';
                                 let text = document.getElementById('txt8').innerText; 
                                 let rectWidth = 455;
                                 let startX = 1106; 
                                 let startY = 434;
-                                let lineHeight = 24;
+                                let lineHeight = 24 * dpr;
                                 drawWrappedText(ctx, text, startX, startY, rectWidth, lineHeight, 'right');
                                 return;
                             } 
                             else if (layer.id === 'txt9') {
-                                ctx.font = '20px bomb'; 
+                                baseFontSize = 20;
+                                ctx.font = `${baseFontSize * dpr}px bomb`; ; 
                                 ctx.fillStyle = 'white';
-                                drawTextWithMultipleShadows(ctx, layer.value, 40 + layer.x + layer.width / 2, layer.y+18, { fillStyle: 'white' });
+                                drawTextWithMultipleShadows(ctx, layer.value, 40 + layer.x + layer.width / 2, layer.y+18*dpr, { fillStyle: 'white' }, dpr);
                                 return; 
                             }
                             else if (layer.id === 'txt10') {
-                                ctx.font = '20px aldrich'; 
+                                baseFontSize = 20;
+                                ctx.font = `${baseFontSize * dpr}px aldrich`; 
                                 ctx.fillStyle = '#9eb3ad';
                             }
                             else if (layer.id === 'cat4') {
-                                ctx.font = '22px gouranga'; 
+                                baseFontSize = 22;
+                                ctx.font = `${baseFontSize * dpr}px gouranga`; 
                                 ctx.fillStyle = 'black';
                             }
                             else if (layer.id === 'cat5') {
-                                ctx.font = '16px gouranga'; 
+                                baseFontSize = 16;
+                                ctx.font = `${baseFontSize * dpr}px gouranga`; 
                                 ctx.fillStyle = 'black';
                             }
                             else if (layer.id === 'cat7') {
-                                ctx.font = '20px gouranga'; 
+                                baseFontSize = 20;
+                                ctx.font = `${baseFontSize * dpr}px gouranga`;  
                                 ctx.fillStyle = 'black';
                             }
                             else {
-                                ctx.font = '16px aldrich'; 
+                                baseFontSize = 16;
+                                ctx.font = `${baseFontSize * dpr}px aldrich`; 
                                 ctx.fillStyle = '#9eb3ad';
                             }
                             ctx.textAlign = layer.textAlign || 'left';
@@ -480,15 +500,15 @@
                             } else if (ctx.textAlign === 'right') {
                                 drawX = layer.x + layer.width;
                             }
-                            let drawY = layer.y + 20; 
+                            let drawY = layer.y + 20 * dpr; 
                             if (layer.id === 'txt1' || layer.id === 'txt2' || layer.id === 'txt3') {
-                                drawY = drawY - 7; 
+                                drawY = drawY - 7 * dpr; 
                             }
                             else if (layer.id === 'txt4' || layer.id === 'txt5' || layer.id === 'txt6') {
-                                drawY = drawY - 3; 
+                                drawY = drawY - 3 * dpr;
                             }
                             else if (layer.id === 'txt10' || layer.id === 'txt9') {
-                                drawY = drawY - 2; 
+                                drawY = drawY - 2 * dpr;  
                             }
                             ctx.fillText(layer.value, drawX, drawY); 
                         } else if (layer.type === 'canvas') {ctx.drawImage(layer.canvas, layer.x, layer.y, layer.width, layer.height);
@@ -509,16 +529,16 @@
                 const style = window.getComputedStyle(element);
                 return style.visibility !== 'hidden' && style.display !== 'none';
             }
-            function drawTextWithMultipleShadows(ctx, text, x, y, options) {
+            function drawTextWithMultipleShadows(ctx, text, x, y, options, dpr) {
                 const shadows = [
-                    { offsetX: 1, offsetY: 0 },
-                    { offsetX: 0, offsetY: 1 },
-                    { offsetX: -1, offsetY: 0 },
-                    { offsetX: 0, offsetY: -1 }
+                    { offsetX: 1*dpr, offsetY: 0 },
+                    { offsetX: 0, offsetY: 1*dpr },
+                    { offsetX: -1*dpr, offsetY: 0 },
+                    { offsetX: 0, offsetY: -1*dpr }
                 ];
                 for (const shadow of shadows) {
                     ctx.shadowColor = '#000000';
-                    ctx.shadowBlur = 1;
+                    ctx.shadowBlur = 1*dpr;
                     ctx.shadowOffsetX = shadow.offsetX;
                     ctx.shadowOffsetY = shadow.offsetY;
                     ctx.fillText(text, x, y);
@@ -553,6 +573,7 @@
         </script>
     </body>
 </html>
+
 
 
 
