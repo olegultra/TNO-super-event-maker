@@ -231,7 +231,7 @@ body {
             },
             {
                 id: "cat4",
-                type: "text", text: " ",
+                type: "text", text: "Text",
                 x: 34, y: 82,
                 width: 460,
                 classes: [`TNO-newspaper`], style: "font-size: 22px; text-align: center;",
@@ -239,7 +239,7 @@ body {
             },
             {
                 id: "cat5",
-                type: "text", text: " ",
+                type: "text", text: "Text",
                 x: 195, y: 140,
                 width: 310,
                 classes: [`TNO-newspaper`], style: "font-size: 16px; text-align: left;",
@@ -253,7 +253,7 @@ body {
             },
             {
                 id: "cat7",
-                type: "text", text: " ",
+                type: "text", text: "Text",
                 x: 172, y: 484,
                 width: 340, height: 40,
                 classes: [`TNO-newspaper`], style: "justify-content: center; align-items: center; text-align: center;",
@@ -267,3 +267,4 @@ var templates = [];
 const urlParams = new URL(window.location.href).searchParams;
 templates = tno_templates;
 document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText;
+
