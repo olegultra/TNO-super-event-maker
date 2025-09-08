@@ -350,7 +350,7 @@
             function saveAsImage() {
                 const canvas = document.getElementById('finalCanvas');
                 const ctx = canvas.getContext('2d');
-                const dpr = 2;
+                const dpr = window.devicePixelRatio || 1;
                 const rect = canvas.getBoundingClientRect();
                 const cssWidth = rect.width;
                 const cssHeight = rect.height;
@@ -574,6 +574,7 @@
         </script>
     </body>
 </html>
+
 
 
 
