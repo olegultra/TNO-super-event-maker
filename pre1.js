@@ -13,7 +13,7 @@ var tno_templates = [
 }
 @font-face {
     font-family: gouranga;
-    src: url("Gouranga-Pixel.ttf")
+    src: url("aoldtypernr.ttf")
 }
 .TNO-header-text {
     color: white;
@@ -267,5 +267,6 @@ var templates = [];
 const urlParams = new URL(window.location.href).searchParams;
 templates = tno_templates;
 document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText;
+
 
 
