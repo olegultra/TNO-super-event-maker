@@ -232,7 +232,7 @@ body {
             {
                 id: "cat4",
                 type: "text", text: "Text",
-                x: 34, y: 89,
+                x: 34, y: 86,
                 width: 460,
                 classes: [`TNO-newspaper`], style: "font-size: 22px; text-align: center;",
                 replaceable: true
@@ -240,7 +240,7 @@ body {
             {
                 id: "cat5",
                 type: "text", text: "Text",
-                x: 195, y: 140,
+                x: 195, y: 144,
                 width: 310,
                 classes: [`TNO-newspaper`], style: "font-size: 16px; text-align: left;",
                 replaceable: true
@@ -267,6 +267,7 @@ var templates = [];
 const urlParams = new URL(window.location.href).searchParams;
 templates = tno_templates;
 document.getElementById("q-drop").innerHTML = document.getElementById("q-drop").innerText;
+
 
 
 
