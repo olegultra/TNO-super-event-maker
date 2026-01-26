@@ -529,8 +529,10 @@
                     link.download = 'tno-superevent.png';
                     document.body.appendChild(link);
                     link.click();
+                    link.style.display = 'none';
+                    link.style.position = 'absolute';
+                    link.style.left = '-9999px';
                     document.body.removeChild(link);
-                    link.remove(); 
                 }).catch(error => {
                     console.error('Ошибка при сохранении изображения:', error);
                 });
@@ -583,6 +585,7 @@
         </script>
     </body>
 </html>
+
 
 
 
